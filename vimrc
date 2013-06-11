@@ -1,16 +1,54 @@
+" Gui
+colorscheme twilight
+set background=dark
+
 if has('gui_running') && has('win32')
-  set guifont=Consolas:h11
+  set guifont=Consolas:h10
 endif
 
 syntax on
 
-set columns=84
-set number
-set backspace=indent,eol,start
-set shiftwidth=2
-set tabstop=2
+set encoding=utf-8
+
+" Tab rules
 set expandtab
-set smarttab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+"set smarttab
+
+" Lines
+set number
+set rnu
+
+set wrap
+set textwidth=80
+set formatoptions=qrn1
+
+set colorcolumn=80
+
+" Display the row and column of the cursor in the status line
+set ruler
+set backspace=indent,eol,start
+
+" Always scroll to what we're searching for
+set scrolloff=3
+
+" Automatically attempt to handle indentation
 set autoindent
 
-colorscheme twilight
+" Display the current mode at the bottom of the window
+set showmode
+
+" Highlight search results
+set hlsearch
+
+" Visually display matching braces
+set showmatch
+
+" Prevent goofy backup files
+set nobackup
+
+" Prevent the creation of swp files, they're just a mess
+set noswapfile
+
