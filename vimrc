@@ -9,6 +9,7 @@ endif
 syntax on
 
 set encoding=utf-8
+set fileformat=unix
 
 " Tab rules
 set expandtab
@@ -21,9 +22,13 @@ set softtabstop=2
 set number
 set rnu
 
-set wrap
-set textwidth=80
-set formatoptions=qrn1
+set nowrap
+"set textwidth=0
+"set formatoptions=qrn1
+
+set textwidth=0
+set formatoptions+=1
+set wrapmargin=0
 
 set colorcolumn=80
 
@@ -52,3 +57,10 @@ set nobackup
 " Prevent the creation of swp files, they're just a mess
 set noswapfile
 
+"
+set autochdir
+
+" Adoos Commands
+command AdoosRoot :Vex
+command QCRoot :Vex
+command BaseRoot :Vex
