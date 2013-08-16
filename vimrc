@@ -1,5 +1,6 @@
 " Gui
-colorscheme twilight
+" default colorscheme to use under ssh connection
+colorscheme twilight256
 set background=dark
 
 if has('gui_running') && has('win32')
@@ -60,7 +61,5 @@ set noswapfile
 "
 set autochdir
 
-" Adoos Commands
-command AdoosRoot :Vex
-command QCRoot :Vex
-command BaseRoot :Vex
+" Custom commands
+command DevRoot :NERDTree 
