@@ -20,7 +20,7 @@ set softtabstop=2
 
 " Lines
 set number
-set rnu
+"set rnu
 
 set nowrap
 "set textwidth=0
