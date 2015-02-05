@@ -4,7 +4,7 @@ call pathogen#helptags()
                                                                                 
 " Ctrlp                                                                         
 " set runtimepath^=~/.vim/bundle/ctrlp.vim                                      
-                                                                       
+                                                                                
 " set tags=/home/sites/php.tags                                                 
                                                                                 
 " Formats                                                                       
