@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+###############################################################################
+# Adding repositories
+
+# SBT Tools
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+
+# Spotify
+echo "deb http://repository.spotify.com stable non-free" | sudo tee -a /etc/apt/sources.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
+
+
+###############################################################################
+# Application Installation
+sudo apt-get update
+
+# Via package manager
+echo "Installing applications via package manager ..."
+
+sudo apt-get install \
+nautilus-open-terminal \
+unrar \
+rar \
+terminator \
+vim \
+openjdk-7-jre \
+openjdk-7-jdk \
+sbt \
+xchat \
+vlc \
+spotify-client \
+
+
+
+# Via binaries
+echo "Installing applications via .deb packages ..."
+echo "Installing Google Chrome - 64bit version ..." &&
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&
+sudo dpkg -i google-chrome-stable_current_amd64.deb &&
+rm -f google-chrome-stable_current_amd64.deb
+
+# Sublime 3
+echo "Installing Sublime Text 3 ..." &&
+wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3065_amd64.deb &&
+sudo dpkg -i sublime-text_build-3065_amd64.deb &&
+rm -f sublime-text_build-3065_amd64.deb
+
+
+###############################################################################
+# Cleaning up
+echo "Cleaning Up" &&
+sudo apt-get -f install &&
+sudo apt-get autoremove &&
+sudo apt-get -y autoclean &&
+sudo apt-get -y clean
