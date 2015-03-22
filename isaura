@@ -10,10 +10,17 @@ echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.li
 echo "deb http://repository.spotify.com stable non-free" | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
 
+# Add system tray icons 14.10
+sudo add-apt-repository ppa:gurqn/systray-utopic
+
+# revert System tray icons
+# sudo apt-get install ppa-purge
+# sudo ppa-purge ppa:gurqn/systray-utopic
 
 ###############################################################################
 # Application Installation
 sudo apt-get update
+sudo apt-get upgrade
 
 # Via package manager
 echo "Installing applications via package manager ..."
@@ -29,22 +36,22 @@ openjdk-7-jdk \
 sbt \
 xchat \
 vlc \
-spotify-client \
-
-
+spotify-client 
 
 # Via binaries
-echo "Installing applications via .deb packages ..."
-echo "Installing Google Chrome - 64bit version ..." &&
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&
-sudo dpkg -i google-chrome-stable_current_amd64.deb &&
-rm -f google-chrome-stable_current_amd64.deb
+if [ $1 == "--apps" ]; then
+  echo "Installing applications via .deb packages ..."
+  echo "Installing Google Chrome - 64bit version ..." &&
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&
+  sudo dpkg -i google-chrome-stable_current_amd64.deb &&
+  rm -f google-chrome-stable_current_amd64.deb
 
-# Sublime 3
-echo "Installing Sublime Text 3 ..." &&
-wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3065_amd64.deb &&
-sudo dpkg -i sublime-text_build-3065_amd64.deb &&
-rm -f sublime-text_build-3065_amd64.deb
+  # Sublime 3
+  echo "Installing Sublime Text 3 ..." &&
+  wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3065_amd64.deb &&
+  sudo dpkg -i sublime-text_build-3065_amd64.deb &&
+  rm -f sublime-text_build-3065_amd64.deb
+fi
 
 
 ###############################################################################
