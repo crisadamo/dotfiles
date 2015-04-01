@@ -13,6 +13,9 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
 # Add system tray icons 14.10
 sudo add-apt-repository ppa:gurqn/systray-utopic
 
+# Add Fish Shell
+sudo apt-add-repository ppa:fish-shell/release-2
+
 # revert System tray icons
 # sudo apt-get install ppa-purge
 # sudo ppa-purge ppa:gurqn/systray-utopic
@@ -25,7 +28,7 @@ sudo apt-get upgrade
 # Via package manager
 echo "Installing applications via package manager ..."
 
-sudo apt-get install \
+sudo apt-get install -y \
 nautilus-open-terminal \
 unrar \
 rar \
@@ -36,10 +39,12 @@ openjdk-7-jdk \
 sbt \
 xchat \
 vlc \
-spotify-client 
+spotify-client \
+fish
 
 # Via binaries
 if [ $1 == "--apps" ]; then
+  # Google Chrome
   echo "Installing applications via .deb packages ..."
   echo "Installing Google Chrome - 64bit version ..." &&
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &&
@@ -51,6 +56,18 @@ if [ $1 == "--apps" ]; then
   wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3065_amd64.deb &&
   sudo dpkg -i sublime-text_build-3065_amd64.deb &&
   rm -f sublime-text_build-3065_amd64.deb
+  
+  # IntelliJ Idea
+  echo "Installing IntelliJ 14.1.1 (141.178.9) ..." &&
+  wget http://download.jetbrains.com/idea/ideaIC-14.1.1.tar.gz &&
+  mkdir -p ~/Applications/ &&
+  mv ideaIC-14.1.1.tar.gz ~/Applications/ && 
+  cd ~/Applications/ &&
+  tar -zxvf ideaIC-14.1.1.tar.gz &&
+  rm -f ideaIC-14.1.1.tar.gz &&
+  cd idea-IC-141.178.9/bin/ %%
+  $(echo -e "-Dswing.aatext=true\n-Dsun.java2d.xrender=true" >> idea.vmoptions) &&
+  $(echo -e "-Dswing.aatext=true\n-Dsun.java2d.xrender=true" >> idea64.vmoptions)
 fi
 
 
