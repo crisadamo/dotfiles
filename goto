@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# alias goto=". /home/desktop/goes $@"
+
 VERSION="0.3 (flat butt)"
 DB="$HOME/.gotostore"
 
@@ -10,7 +12,7 @@ MOD3=$4
 MOD4=$5
 MOD5=$6
 
-# Utiliti Functions
+# Utility Functions ------------------------------------------------------------
 function usage() {
   echo "Usage: goto [OPTION]... [MODIFIERS]... "
   echo "Example: go add pepe '/home/pepe/'"
@@ -32,12 +34,6 @@ function usage() {
   echo "  help | v:                               Shows this menu."
 }
 
-function setup() {
-  if [ ! -f $DB ]; then
-    touch "$DB"
-  fi
-}
-
 function validate() {
   grep -P "[A-Za-z-_0-9]*"
 }
@@ -46,16 +42,18 @@ function prettyPrint() {
   echo "$1" | sed s/\=\/" => "/ | xargs -I line echo "  " line
 }
 
+# Application Functions --------------------------------------------------------
+function setup() {
+  if [ ! -f $DB ]; then
+    touch "$DB"
+  fi
+}
+
 function go() {
   local search_key=$1
   local dest=
   dest=$(grep "^$search_key=" $DB | grep -oP "=\K(.*)" )
   cd $dest
-}
-
-function list() {
-  echo "List of available jumps:"
-  cat $DB | sed s/\=\/" => "/ | xargs -I line echo "  " line
 }
 
 function add() {
@@ -94,6 +92,13 @@ function delete() {
   fi
 }
 
+function list() {
+  echo "List of available jumps:"
+  cat $DB | sed s/\=\/" => "/ | xargs -I line echo "  " line
+}
+
+
+# Main Application Loop --------------------------------------------------------
 setup
 
 case $CMD in
