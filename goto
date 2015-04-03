@@ -1,7 +1,7 @@
 #!/bin/bash
 
-VERSION="0.1 (clonky monky) Beta"
-DB=".gotostore"
+VERSION="0.3 (flat butt)"
+DB="$HOME/.gotostore"
 
 CMD=$1
 MOD1=$2
@@ -10,26 +10,26 @@ MOD3=$4
 MOD4=$5
 MOD5=$6
 
-
+# Utiliti Functions
 function usage() {
-  echo "Usage: go [OPTION]... [MODIFIERS]... "
+  echo "Usage: goto [OPTION]... [MODIFIERS]... "
   echo "Example: go add pepe '/home/pepe/'"
   echo
   echo "Options:"
   echo "--------"
-  echo "  to [key]:                         Go to the configured path."
-  echo "  list | ls | l:                    List all available jumps."
-  echo "  delete | del | d [key] | all:     Delete the specified key or all keys"
-  echo "  rename | r [old-key] [new-key]:   Rename a given key"
-  echo "  add | a:                          Add a path to the jump list."
+  echo "  [key]:                                  Go to the configured path."
+  echo "  list | ls | l:                          List all available jumps."
+  echo "  remove | rm | d [key] | all:            Delete the specified key or all keys"
+  #echo "  rename | rn | r [old-key] [new-key]:    Rename a given key"
+  echo "  add | a:                                Add a path to the jump list."
   echo "    Modifiers:"
   echo "    ----------"
-  echo "      me:                           Add the current path and set the 'jump' "
-  echo "                                    key to the directory name."
-  echo "      me as [key]:                  Add the current path and set the 'jump' key."
-  echo "      [key] [path]:                 Add the desired path with the key."
-  echo "  verion | v:                       Shows the current version."
-  echo "  help | v:                         Shows this menu."
+  echo "      this | . :                          Add the current path and set the 'jump' "
+  echo "                                          key to the directory name."
+  echo "      this | . as [key]:                  Add the current path and set the 'jump' key."
+  echo "      [key] [path]:                       Add the desired path with the key."
+  echo "  verion | v:                             Shows the current version."
+  echo "  help | v:                               Shows this menu."
 }
 
 function setup() {
@@ -42,13 +42,15 @@ function validate() {
   grep -P "[A-Za-z-_0-9]*"
 }
 
+function prettyPrint() {
+  echo "$1" | sed s/\=\/" => "/ | xargs -I line echo "  " line
+}
+
 function go() {
   local search_key=$1
   local dest=
-
   dest=$(grep "^$search_key=" $DB | grep -oP "=\K(.*)" )
-  echo "Dest -> $dest"
-  #cd $dest
+  cd $dest
 }
 
 function list() {
@@ -59,11 +61,13 @@ function list() {
 function add() {
   local entry=""
   case $MOD1 in
-    me)
+    this | .)
+      local current_dir=$(basename $PWD)
+
       if [[ $MOD2 == "as" ]]; then
-        entry="my-as-key=$MOD3"
+        entry="$MOD3=$PWD"
       else
-        entry="dir-key=$MOD2"
+        entry="$current_dir=$PWD"
       fi
       ;;
     *)
@@ -72,31 +76,36 @@ function add() {
   esac
 
   if [ $entry != "" ]; then
+    echo " Adding: $entry"
     echo $entry >> $DB
   fi
 }
 
 function delete() {
   local del_key=$1
-  if [ $del_key == "all" ]: then
+  if [ $del_key == "all" ]; then
     > $DB
-  else
+    echo " The list has been cleaned."
+  elif [ $del_key != "" ]; then
     sed -i '/^$del_key=/d' $DB
+    echo " del_key was removed."
+  else
+    echo " There is no key to remove."
   fi
 }
 
+setup
 
 case $CMD in
   add | a)
-    setup
     add
     ;;
-  delete | del | d)
+  remove | rm | d)
     delete $MOD1
     ;;
-  rename | r)
-    #rename
-    ;;
+  #rename | rn | r)
+  #  rename
+  #  ;;
   list | ls | l)
      list
     ;;
@@ -104,12 +113,9 @@ case $CMD in
     echo "  current ver. $VERSION"
     ;;
   help | h)
-    usage 
-    ;;
-  to)
-    go $MOD1
+    usage
     ;;
   *)
-    usage 
+    go $CMD
     ;;
 esac
