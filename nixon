@@ -65,9 +65,9 @@ if [ $1 == "--apps" ]; then
   cd ~/Applications/ &&
   tar -zxvf ideaIC-14.1.1.tar.gz &&
   rm -f ideaIC-14.1.1.tar.gz &&
-  cd idea-IC-141.178.9/bin/ %%
-  $(echo -e "-Dswing.aatext=true\n-Dsun.java2d.xrender=true" >> idea.vmoptions) &&
-  $(echo -e "-Dswing.aatext=true\n-Dsun.java2d.xrender=true" >> idea64.vmoptions)
+  cd idea-IC-141.178.9/bin/ &&
+  (echo -e "-Dswing.aatext=true\n-Dsun.java2d.xrender=true" >> idea.vmoptions) &&
+  (echo -e "-Dswing.aatext=true\n-Dsun.java2d.xrender=true" >> idea64.vmoptions)
 fi
 
 
