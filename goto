@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# alias goto=". /home/desktop/goes $@"
-
 VERSION="0.3 (flat butt)"
 DB="$HOME/.gotostore"
 
