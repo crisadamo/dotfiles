@@ -1,21 +1,43 @@
 {
-  "use_tab_stops": true,
-  "bold_folder_labels": false,
-  "color_scheme": "Packages/Color Scheme - Default/Twilight.tmTheme",
-  "default_line_ending": "unix",
-  "font_size": 12,
-  
-  // On windows
-  // "font_face": "DejaVu Sans Mono",
-  // "font_size": 10.0,
-  
-  "word_wrap": "false",
-  "highlight_line": true,
-  "ignored_packages": [],
+	"line_numbers": true,
+
+  // Valid values are "smooth", "phase", "blink" and "solid".
+  "caret_style": "smooth",
+
+  "hide_minimap": true,
+
+	// Columns in which to display vertical rulers
   "rulers": [80],
+
+  // Set to true to turn spell checking on by default
+  "spell_check": false,
+
+  // The number of spaces a tab is considered equal to
   "tab_size": 2,
+
+  // Set to true to insert spaces when tab is pressed
   "translate_tabs_to_spaces": true,
+
+  // If translate_tabs_to_spaces is true, use_tab_stops will make tab and
+  // backspace insert/delete up to the next tabstop
+  "use_tab_stops": true,
+
+  // Trims white space added by auto_indent when moving the caret off the
+  // line.
+  "trim_automatic_white_space": true,
+
+  // Set to true to removing trailing white space on save
+
   "trim_trailing_white_space_on_save": true,
-  "use_simple_full_screen": true,
-  "vintage_start_in_command_mode": true,
+  // Determines what character(s) are used to terminate each line in new files.
+  // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and
+  // 'unix' (LF only).
+  "default_line_ending": "unix",
+
+  // List any packages to ignore here. When removing entries from this list,
+  // a restart may be required if the package contains plugins.
+  "ignored_packages": [],
+  
+  "vintage_start_in_command_mode": true
+  
 }
