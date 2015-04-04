@@ -84,7 +84,7 @@ function delete() {
     echo " The list has been cleaned."
   elif [ $del_key != "" ]; then
     sed -i '/^$del_key=/d' $DB
-    echo " del_key was removed."
+    echo " $del_key was removed."
   else
     echo " There is no key to remove."
   fi
