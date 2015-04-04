@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo ">> Adding directories: Applications & Develop"
+mkdir -p $OME/Develop
+mkdir -p $OME/Applications
+
+echo ">> Installing dotfiles...
+git clone git@github.com:crisadamo/dotfiles.git
+cd dotfiles
+cp -r .vim/ $HOME
+cp .vimrc $HOME
+cp sublime/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User
+cp nixon $HOME
+cat tets | xargs -I file sed -i "1i file" .bashrc
+
