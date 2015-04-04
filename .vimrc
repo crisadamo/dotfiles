@@ -60,6 +60,7 @@ map <leader>x :wq<cr>
 map <C-v> <Esc>"+gp
 map! <C-v> <Esc>"+gp
 vmap <C-c> "+y
+set pastetoggle=<F4>
 
 " Save all and run make with ,m
 map <leader>m :wa<cr>:make<cr>
