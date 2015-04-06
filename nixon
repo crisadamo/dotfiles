@@ -37,6 +37,8 @@ vim \
 openjdk-7-jre \
 openjdk-7-jdk \
 sbt \
+git \
+xclip \
 xchat \
 vlc \
 spotify-client \
