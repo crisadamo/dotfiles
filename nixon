@@ -70,6 +70,12 @@ if [ $1 == "--apps" ]; then
   cd idea-IC-141.178.9/bin/ &&
   (echo -e "-Dswing.aatext=true\n-Dsun.java2d.xrender=true" >> idea.vmoptions) &&
   (echo -e "-Dswing.aatext=true\n-Dsun.java2d.xrender=true" >> idea64.vmoptions)
+  
+  # Install Skype
+  echo "Installing Skype 4.3 ..." &&
+  wget http://download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb &&
+  sudo dpkg -i skype-ubuntu-precise_4.3.0.37-1_i386.deb &&
+  rm -f skype-ubuntu-precise_4.3.0.37-1_i386.deb
 fi
 
 
