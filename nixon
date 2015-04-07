@@ -96,7 +96,6 @@ elif [ "$1" == "--set" ]; then
   gsettings set org.gnome.settings-daemon.plugins.media-keys volume-down binding "<Super>F11"
   gsettings set org.gnome.settings-daemon.plugins.media-keys volume-up binding "<Super>F12"
   
-  
   # Launcher Setup
   gsettings set com.canonical.Unity.Launcher favorites "['application://ubuntu-software-center.desktop', 'application://nautilus.desktop', 'application://spotify.desktop', 'application://google-chrome.desktop', 'application://sublime_text.desktop', 'application://gvim.desktop', 'unity://running-apps', 'unity://desktop-icon', 'application://terminator.desktop', 'application://unity-control-center.desktop', 'unity://expo-icon', 'unity://devices']"
   
@@ -112,6 +111,11 @@ elif [ "$1" == "--set" ]; then
   
   # Show real name on panel
   gsettings set com.canonical.indicator.session show-real-name-on-panel true
+
+  # Nautilus Defaults
+  gsettings set org.gnome.nautilus.preferences default-folder-viewer "list-view"
+  gsettings set org.gnome.nautilus.preferences default-sort-order "type"
+  gsettings set org.gnome.nautilus.preferences sort-directories-first true
 fi
 
 
