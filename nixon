@@ -11,13 +11,13 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee -a /etc/apt/
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 94558F59
 
 # Add system tray icons 14.10
-sudo add-apt-repository ppa:gurqn/systray-utopic
+sudo add-apt-repository -y ppa:gurqn/systray-utopic
 
 # Add Fish Shell
-sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt-add-repository -y ppa:fish-shell/release-2
 
 # Add Oracle JDK
-sudo add-apt-repository ppa:webupd8team/java
+sudo add-apt-repository -y ppa:webupd8team/java
 
 # revert System tray icons
 # sudo apt-get install ppa-purge
@@ -58,9 +58,9 @@ if [ "$1" == "--apps" ]; then
 
   # Sublime 3
   echo "Installing Sublime Text 3 ..." &&
-  wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3065_amd64.deb &&
-  sudo dpkg -i sublime-text_build-3065_amd64.deb &&
-  rm -f sublime-text_build-3065_amd64.deb
+  wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb &&
+  sudo dpkg -i sublime-text_build-3083_amd64.deb &&
+  rm -f sublime-text_build-3083_amd64.deb
   
   # IntelliJ Idea
   echo "Installing IntelliJ 14.1.1 (141.178.9) ..." &&
@@ -79,7 +79,9 @@ if [ "$1" == "--apps" ]; then
   wget http://download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb &&
   sudo dpkg -i skype-ubuntu-precise_4.3.0.37-1_i386.deb &&
   rm -f skype-ubuntu-precise_4.3.0.37-1_i386.deb
-elif [ "$1" == "--set" ]; then
+fi
+
+if [ "$1" == "--set" ]; then
   # Set custom background
   gsettings set org.gnome.desktop.background picture-options "stretched"
   gsettings set org.gnome.desktop.background picture-uri "file://"
