@@ -126,6 +126,12 @@ if [ "$1" == "--set" ]; then
   sudo bash -c "echo 'vm.swappiness = 10' >> /etc/sysctl.conf"
 fi
 
+if [ "$1" == "--set2" ]; then
+  mkdir -p $HOME/Applications
+  mkdir -p $HOME/Develop/{src,apps,test}
+  mkdir -p $HOME/Downloads/{text,media,software,src}
+  mkdir -p $HOME/Documents/{docs,taxes,books}
+fi
 
 ###############################################################################
 # Cleaning up
