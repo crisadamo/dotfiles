@@ -121,6 +121,9 @@ if [ "$1" == "--set" ]; then
   gsettings set org.gnome.nautilus.preferences default-folder-viewer "list-view"
   gsettings set org.gnome.nautilus.preferences default-sort-order "type"
   gsettings set org.gnome.nautilus.preferences sort-directories-first true
+  
+  # Come on, I want it bittersweet!
+  sudo bash -c "echo 'vm.swappiness = 10' >> /etc/sysctl.conf"
 fi
 
 
