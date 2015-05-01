@@ -86,6 +86,9 @@ if [ "$1" == "--set" ]; then
   gsettings set org.gnome.desktop.background picture-options "stretched"
   gsettings set org.gnome.desktop.background picture-uri "file://"
   
+  # Always show menus ubuntu 15.04
+  # gsettings set com.canonical.Unity always-show-menus true
+  
   # Custom Shortcuts ---------------------------------------------------------------------------------
   
   # Close shortcut ala MacOS X
