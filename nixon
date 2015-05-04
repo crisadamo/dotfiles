@@ -32,20 +32,25 @@ sudo apt-get upgrade
 echo "Installing applications via package manager ..."
 
 sudo apt-get install -y \
+xchat \
+vlc \
+spotify-client \
 nautilus-open-terminal \
 unrar \
 rar \
-terminator \
+xclip \
 vim \
+terminator \
+fish \
+graphviz \
 oracle-java7-installer \
 oracle-java8-installer \
 sbt \
 git \
-xclip \
-xchat \
-vlc \
-spotify-client \
-fish
+python-setuptools \
+python-dev \ 
+python-pip \
+build-essential
 
 # Via binaries
 if [ "$1" == "--apps" ]; then
