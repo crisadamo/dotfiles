@@ -6,6 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+
+-- Widgets
 require("battery")
 
 -- Load Debian menu entries
@@ -48,12 +50,41 @@ beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
-editor_cmd = terminal .. " -e " .. editor
+editor_cmd = terminal .. " -x " .. editor
 
+-- Battery Widget
 batterywidget = widget({type = "textbox", name = "batterywidget", align = "right" })
 awful.hooks.timer.register(60, function()
   batterywidget.text = batteryInfo("BAT0")
 end)
+
+-- Volume Widget
+volume_widget = widget({ type = "textbox", name = "tb_volume", align = "right" })
+function update_volume(widget)
+  local fd = io.popen("amixer sget Master")
+  local status = fd:read("*all")
+  fd:close()
+
+  local volume = string.match(status, "(%d?%d?%d)%%")
+  volume = string.format("% 3d", volume)
+
+  status = string.match(status, "%[(o[^%]]*)%]")
+
+  if string.find(status, "on", 1, true) then
+    -- For the volume numbers
+    volume = volume .. "%"
+  else
+    -- For the mute button
+    volume = volume .. "M"
+  end
+
+  widget.text = "v" .. volume
+end
+
+update_volume(volume_widget)
+awful.hooks.timer.register(1, function () update_volume(volume_widget) end)
+
+-- Wireless Widget
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -214,7 +245,8 @@ for s = 1, screen.count() do
     },
     mylayoutbox[s],
     mytextclock,
-    batterywidget
+    batterywidget,
+    volume_widget,
     s == 1 and mysystray or nil,
     mytasklist[s],
     layout = awful.widget.layout.horizontal.rightleft
@@ -290,6 +322,17 @@ globalkeys = awful.util.table.join(
     function (...) awful.util.spawn(terminal .. " -e " .. ...) end,
     awful.completion.shell,
     awful.util.getdir("cache") .. "/history")
+  end),
+
+  -- My Own Shortcuts
+  awful.key({ modkey }, "F12", function ()
+    awful.util.spawn("amixer set Master 4%+")
+  end),
+  awful.key({ modkey }, "F11", function ()
+    awful.util.spawn("amixer set Master 4%-")
+  end),
+  awful.key({ modkey }, "F10", function ()
+    awful.util.spawn("amixer -D pulse set Master 1+ toggle")
   end)
 )
 
