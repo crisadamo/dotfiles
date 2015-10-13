@@ -9,6 +9,7 @@ Awesome config
 * _ModKey + r_ :               Run application
 * _ModKey + shift + r_ :       Run command on terminal
 * _ModKey + q_ :               Quite application
+* _Ctrl + Alt + l_ :           Lock
 
 #### Volume controls
 * _ModKey + F10_ :             Mute toggle  
