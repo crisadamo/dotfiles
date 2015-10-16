@@ -6,10 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
-
 -- Widgets
 require("battery")
-
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -122,7 +120,7 @@ layouts = {
 --
 -- Custom tags
 tags = {
-  names  = { "main", "chrome", "fish", "ide", "others", 8, 7, 8, 9 },
+  names  = { "main", "chrome", "fish", "ide", "others", 6, 7, 8, 9 },
   layout = { layouts[1], layouts[10], layouts[2], layouts[10], layouts[2], layouts[12], layouts[9], layouts[3], layouts[7] }
 }
 
@@ -137,7 +135,9 @@ end
 myawesomemenu = {
   { "manual", terminal .. " -e man awesome" },
   { "edit config", editor_cmd .. " " .. awesome.conffile },
+  { "Settings", 'unity-control-center'},
   { "restart", awesome.restart },
+  { "Log out", '/home/cristian/shutdown_dialog.sh'},
   { "quit", awesome.quit }
 }
 
@@ -428,9 +428,42 @@ awful.rules.rules = {
     rule = { class = "gimp" },
     properties = { floating = true }
   },
-  -- Set Firefox to always map on tags number 2 of screen 1.
-  -- { rule = { class = "Firefox" },
-  --   properties = { tag = tags[1][2] } },
+  -- Set Nautilus on tag 1 and maximized
+  {
+    rule = { instance = "nautilus" },
+    properties = {
+      maximized_vertical = true,
+      maximized_horizontal = true,
+      tag = tags[1][1]
+    }
+  },
+  -- Set Sublime on tag 5 and maximized
+  {
+    rule = { instance = "subl" },
+    properties = {
+      maximized_vertical = true,
+      maximized_horizontal = true,
+      tag = tags[1][5]
+    }
+  },
+  -- Set Google chrome on tag 2 and maximized
+  {
+    rule = { instance = "google-chrome" },
+    properties = {
+      maximized_vertical = true,
+      maximized_horizontal = true,
+      tag = tags[1][2]
+    }
+  },
+  -- Set IntelliJ on tag 4 and maximized
+  {
+    rule = { instance = "idea" },
+    properties = {
+      maximized_vertical = true,
+      maximized_horizontal = true,
+      tag = tags[1][4]
+    }
+  }
 }
 -- }}}
 
