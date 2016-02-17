@@ -13,6 +13,8 @@ Shortcut | Description
 **_ModKey + shift + r_**        |  Run command on terminal
 **_ModKey + q_**                |  Quite application
 **_Ctrl + Alt + l_**            |  Lock
+**_ModKey + o_**                |  Move to next monitor - 1
+**_ModKey + p_**                |  Move to next monitor + 1
 
 #### Volume controls
 
