@@ -6,8 +6,10 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+
 -- Widgets
 require("battery")
+
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -120,7 +122,7 @@ layouts = {
 --
 -- Custom tags
 tags = {
-  names  = { "main", "chrome", "fish", "ide", "others", 6, 7, 8, 9 },
+  names  = { "main", "chrome (w)", "chrome (p)", "fish", "ide", "others", 7, 8, 9 },
   layout = { layouts[1], layouts[10], layouts[2], layouts[10], layouts[2], layouts[12], layouts[9], layouts[3], layouts[7] }
 }
 
@@ -325,6 +327,7 @@ globalkeys = awful.util.table.join(
   end),
 
   -- My Own Shortcuts
+  --  + Audio
   awful.key({ modkey }, "F12", function ()
     awful.util.spawn("amixer set Master 4%+")
   end),
@@ -334,7 +337,14 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey }, "F10", function ()
     awful.util.spawn("amixer -D pulse set Master 1+ toggle")
   end),
-  -- Lock screen
+  --  + Brigthness Control
+  awful.key({ }, "XF86MonBrightnessDown", function ()
+    awful.util.spawn("xbacklight -dec 15")
+  end),
+  awful.key({ }, "XF86MonBrightnessUp", function ()
+    awful.util.spawn("xbacklight -inc 15")
+  end),
+  --  + Lock screen
   awful.key({ "Mod1", "Control" },    "l",  function ()
      awful.util.spawn("gnome-screensaver-command --lock")
   end)
