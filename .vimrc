@@ -1,4 +1,4 @@
-" don't bother with vi compatibility
+"don't bother with vi compatibility
 set nocompatible
 
 " Configure Pathogen
@@ -86,8 +86,8 @@ map <Leader>n :tabnew<cr>
 map <Leader>nc :tabclose<cr>
 map <Leader>nc :tabnext<cr>
 map <Leader>np :tabprevious<cr>
-map <leader>sv :vspl<CR>
-map <leader>sh :spl<CR>
+map <leader>\| :vspl<CR>
+map <leader>- :spl<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
 set splitbelow
@@ -110,7 +110,6 @@ nnoremap <leader>t :CtrlP<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Others
