@@ -4,9 +4,14 @@
 #### Install
 
 ```
+brew update vim
 brew install the_silver_searcher
 brew install ctags
 
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+cd ~/.vim/bundle
 
 git clone https://github.com/tomlion/vim-solidity
 git clone https://github.com/derekwyatt/vim-scala
