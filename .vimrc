@@ -1,4 +1,4 @@
-"don't bother with vi compatibility
+" don't bother with vi compatibility
 set nocompatible
 
 " Configure Pathogen
@@ -21,8 +21,8 @@ set cursorline
 set t_Co=256
 
 " Color scheme
-let g:solarized_termcolors=256
-
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
 set background=dark
 colorscheme solarized
 
@@ -35,7 +35,7 @@ set number
 set ruler
 " Set working directory to the current file
 set autochdir
-
+set autoread
 set encoding=utf-8
 
 " Use spaces instead of tabs
@@ -69,6 +69,8 @@ set sidescrolloff=5
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " search as you type
 set incsearch
+set ignorecase
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
@@ -82,11 +84,11 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Buffers, splits and tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>n :tabnew<cr>
-map <Leader>nc :tabclose<cr>
-map <Leader>nc :tabnext<cr>
-map <Leader>np :tabprevious<cr>
-map <leader>\| :vspl<CR>
+map <leader>n :tabnew<cr>
+map <leader>nc :tabclose<cr>
+map <leader>nn :tabnext<cr>
+map <leader>np :tabprevious<cr>
+map <leader>\ :vspl<CR>
 map <leader>- :spl<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
@@ -110,6 +112,13 @@ nnoremap <leader>t :CtrlP<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Others
