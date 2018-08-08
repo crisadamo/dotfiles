@@ -1,13 +1,31 @@
 # Dotfiles
 
 
-#### Install
+## Install
 
+#### Shell Setup
+
+```
+brew install zsh zsh-autosuggestions zsh-syntax-highlighting
+
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source ~/.zshrc
+```
+
+**Note:**
+If you receive "highlighters directory not found" error message,
+you may need to add the following to your .zshenv:
+
+```export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters```
+
+#### VIM Setup
 ```
 brew update vim
 brew install the_silver_searcher
 brew install ctags
-
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
