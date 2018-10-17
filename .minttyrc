@@ -1,0 +1,4 @@
+BoldAsFont=no
+Font=Monaco
+FontHeight=10
+Term=xterm-256color
