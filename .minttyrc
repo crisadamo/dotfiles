@@ -1,4 +1,12 @@
 BoldAsFont=no
 Font=Monaco
-FontHeight=10
+FontHeight=12
 Term=xterm-256color
+Transparency=off
+OpaqueWhenFocused=no
+CursorType=block
+FontSmoothing=full
+BackgroundColour=48,48,48
+ForegroundColour=211,215,207
+CursorColour=211,215,207
+Scrollbar=none
