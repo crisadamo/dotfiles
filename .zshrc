@@ -2,7 +2,11 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/cristian/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
 
 # Aliases
 alias pyweb="python -m SimpleHTTPServer"
@@ -95,9 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/id_rsa-grandata"
-ssh-add ~/.ssh/id_rsa-grandata
-ssh-add ~/.ssh/id_rsa
+# export SSH_KEY_PATH="~/.ssh/id_rsa-grandata"
+# ssh-add ~/.ssh/id_rsa-grandata
+# ssh-add ~/.ssh/id_rsa
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
