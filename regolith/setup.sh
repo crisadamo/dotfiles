@@ -24,6 +24,7 @@ sudo apt install -y --allow \
   rar \
   python-setuptools \
   python-dev \
+  virtualenvwrapper \
   graphviz \
   vlc
   
@@ -40,8 +41,8 @@ cp -r regolith/.Xresources.d ~/
 cp regolith/.Xresources-regolith ~/
 
 mkdir -p ~/.config/regolith/
-cp -r regolith/i3 ~/.config/regolith/
-cp -r regolith/i3xrocks ~/.config/regolith/
+cp -r regolith/i3/ ~/.config/regolith/
+cp -r regolith/i3xrocks/ ~/.config/regolith/
 
 ###################################################################
 echo "Setting vim..."
@@ -69,6 +70,8 @@ git clone https://github.com/tomlion/vim-solidity ~/.vim/bundle/vim-solidity
 
 ###################################################################
 echo "Setting zsh..."
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp .zshrc $HOME/
 
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
