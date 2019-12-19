@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
@@ -74,8 +74,6 @@ plugins=(
   npm
   pyenv
   python
-  sbt
-  scala
   jump
 )
 
