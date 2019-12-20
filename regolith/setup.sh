@@ -1,4 +1,9 @@
-!#/usr/bin/env bash
+#!/usr/bin/env bash
+
+###################################################################
+echo "Fixing Avahi-daemon Network bug..."
+
+sudo sed -i sed 's/^hosts:.*/hosts:          files dns/'
 
 ###################################################################
 echo "Installing packages..."
