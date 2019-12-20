@@ -5,11 +5,17 @@ echo "Fixing Avahi-daemon Network bug..."
 
 sudo sed -i sed 's/^hosts:.*/hosts:          files dns/'
 
+
 ###################################################################
 echo "Installing packages..."
 
+sudo add-apt-repository universe
 sudo apt update
+
 sudo apt install -y --allow \
+  exfat-fuse \
+  exfat-utils \
+  gparted \
   curl \
   coreutils \
   build-essential \
@@ -38,7 +44,8 @@ sudo apt -f install &&
 sudo apt autoremove &&
 sudo apt -y autoclean &&
 sudo apt -y clean
- 
+
+
 ###################################################################
 echo "Setting Regolith's i3..."
 
@@ -48,6 +55,7 @@ cp regolith/.Xresources-regolith ~/
 mkdir -p ~/.config/regolith/
 cp -r regolith/i3/ ~/.config/regolith/
 cp -r regolith/i3xrocks/ ~/.config/regolith/
+
 
 ###################################################################
 echo "Setting vim..."
@@ -73,6 +81,7 @@ git clone https://github.com/pangloss/vim-javascript ~/.vim/bundle/vim-javascrip
 git clone https://github.com/derekwyatt/vim-scala ~/.vim/bundle/vim-scala
 git clone https://github.com/tomlion/vim-solidity ~/.vim/bundle/vim-solidity
 
+
 ###################################################################
 echo "Setting zsh..."
 
@@ -84,6 +93,7 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zshrc
 
 cp tmux/tmux.conf ~/.tmux.conf
+
 
 ###################################################################
 echo "Creating common directory structure..."
