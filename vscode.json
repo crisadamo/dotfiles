@@ -1,0 +1,44 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 24,
+    "editor.cursorStyle": "block",
+    "editor.renderIndentGuides": true,
+    "editor.rulers": [100],
+    "editor.wordWrapColumn": 100,
+    "editor.lineNumbers": "on",
+    "editor.trimAutoWhitespace": true,
+    "editor.tabCompletion": "on",
+    "editor.minimap.enabled": false,
+    "editor.smoothScrolling": true,
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "none",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.decorations.badges": false,
+    "C_Cpp.updateChannel": "Insiders",
+    // "window.zoomLevel": 1,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Material Theme Ocean",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
+}
