@@ -1,5 +1,5 @@
-" don't bother with vi compatibility
 set nocompatible
+set encoding=utf-8
 
 " Configure Pathogen
 execute pathogen#infect()
@@ -10,6 +10,11 @@ let mapleader = ','
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if (has('termguicolors'))
+  set termguicolors
+endif
+
+
 " Enable syntax highlighting
 syntax enable
 filetype plugin indent on
@@ -17,14 +22,17 @@ filetype plugin indent on
 " Highlight current line
 set cursorline
 
-" 256 colors
+set term=xterm
 set t_Co=256
 
+" GUI Font
+set guifont=Menlo-Regular:h15
+
 " Color scheme
-let g:solarized_termcolors=16
-let g:solarized_termtrans=1
+let g:airline_theme = 'material'
+let g:material_theme_style='ocean'
 set background=dark
-colorscheme solarized
+colorscheme material
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -119,6 +127,50 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Rust Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rustfmt_autosave = 1
+# Mac
+let g:rust_clip_command = 'pbcopy'
+# Linux
+# let g:rust_clip_command = 'xclip -selection clipboard'
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Golang Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Python Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Syntastic Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Others
