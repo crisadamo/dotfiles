@@ -57,3 +57,23 @@ cp -r ~/.vim/tmp/material.vim/autoload/airline ~/.vim/autoload/
 cp -r ~/.vim/tmp/material.vim/autoload/lightline ~/.vim/autoload/
 
 ```
+
+# MacOS Apps
+- [Google Chrome](https://www.google.com/chrome/) Browser (Free)
+- [iTerm2]() Better terminal app
+- [Spectacle](https://www.spectacleapp.com/) Windows management/Optimization (Free)
+- [Cheatsheet](https://www.mediaatelier.com/CheatSheet/) App shortcut mapping (Free)
+- [IINA](https://iina.io/) Video Player (Free)
+- [Figma](https://www.figma.com/)
+- [Dropzone](https://aptonic.com/) Productivity file app (Freemium)
+- [Alfred](https://www.alfredapp.com/) Better spotlight bar
+- [SoundControl](https://staticz.com/soundcontrol/) Audio routing and enhancement
+
+## Alt
+- [Mosaic](https://www.lightpillar.com/mosaic.html) Workspace optimization (Paid)
+- [Bartebder](https://www.macbartender.com/) Menu bar optimization (Paid)
+- [1Password](https://www.1password.com) Password manager (Paid)
+- [SIP](https://sipapp.io/) Better color picker (Paid)
+- [CleanShot](https://cleanshot.com/) Better screen recording and shots (Paid)
+- [PixelMator](https://www.pixelmator.com/pro/) Photoshop alternative (Paid)
+- [Luminar](https://skylum.com/luminar) Photo editor (Paid)
