@@ -56,6 +56,10 @@ cp ~/.vim/tmp/material.vim/colors/* ~/.vim/colors/
 cp -r ~/.vim/tmp/material.vim/autoload/airline ~/.vim/autoload/
 cp -r ~/.vim/tmp/material.vim/autoload/lightline ~/.vim/autoload/
 
+brew install pyenv
+pyenv install 3.10.4
+pyenv global 3.10.4
+
 ```
 
 # MacOS Apps
