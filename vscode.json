@@ -21,8 +21,13 @@
     "explorer.decorations.badges": false,
     "C_Cpp.updateChannel": "Insiders",
     // "window.zoomLevel": 1,
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Material Theme Ocean",
+    "workbench.colorTheme": "Material Theme Ocean High Contrast",
+    "workbench.iconTheme": "eq-material-theme-icons-ocean",
+    "editor.inlineSuggest.enabled": true,
+    "window.zoomLevel": 1,
+    "[python]": {
+        "editor.formatOnType": true
+    },
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },

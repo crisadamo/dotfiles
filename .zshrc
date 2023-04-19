@@ -6,10 +6,10 @@ export ZSH=$HOME/.oh-my-zsh
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # Aliases
-alias pyweb="python -m SimpleHTTPServer"
+alias pyweb="python -m http.server"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -108,4 +108,9 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias ohmyzsh="mate ~/.oh-my-zsh
+eval "$(pyenv init -)"
+
+# pnpm
+export PNPM_HOME="/Users/crisadamo/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH""
