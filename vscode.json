@@ -1,49 +1,87 @@
 {
-    "files.autoSave": "afterDelay",
-    "files.trimTrailingWhitespace": true,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 14,
-    "editor.lineHeight": 24,
-    "editor.cursorStyle": "block",
-    "editor.renderIndentGuides": true,
-    "editor.rulers": [100],
-    "editor.wordWrapColumn": 100,
-    "editor.lineNumbers": "on",
-    "editor.trimAutoWhitespace": true,
-    "editor.tabCompletion": "on",
-    "editor.minimap.enabled": false,
-    "editor.smoothScrolling": true,
-    "editor.renderControlCharacters": true,
-    "editor.renderWhitespace": "none",
-    "explorer.confirmDragAndDrop": false,
-    "explorer.decorations.badges": false,
-    "C_Cpp.updateChannel": "Insiders",
-    // "window.zoomLevel": 1,
-    "workbench.colorTheme": "Material Theme Ocean High Contrast",
-    "workbench.iconTheme": "eq-material-theme-icons-ocean",
+    "editor.fontFamily": "Menlo, Monaco, 'IBM Plex Mono Medium', 'Courier New', monospace",
     "editor.inlineSuggest.enabled": true,
-    "window.zoomLevel": 1,
+    "editor.minimap.enabled": false,
     "[python]": {
-        "editor.formatOnType": true
+        "editor.formatOnType": true,
+        "editor.tabSize": 4
     },
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode",
+        "editor.tabSize": 2
     },
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2
     },
-    "todo-tree.tree.showScanModeButton": false,
-    "todo-tree.general.tags": [
-        "BUG",
-        "HACK",
-        "FIXME",
-        "TODO",
-        "XXX",
-        "[ ]",
-        "[x]"
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2
+    },
+    "[typescriptreact]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[json]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.rulers": [
+        80, 100
     ],
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
+    "window.zoomLevel": 1,
+    "settingsSync.ignoredSettings": [
+        "editor.fontFamily"
+    ],
+    "files.autoSave": "afterDelay",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "yaml": false,
+        "typescript": true,
+        "typescriptreact": true
+    },
+    "files.associations": {
+        "*.mojo": "mojo",
+        "*.🔥": "mojo",
+        "*.tsx": "typescriptreact"
+    },
+    "notebook.lineNumbers": "on",
+    "python.defaultInterpreterPath": "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python",
+    "cSpell.language": "en,es-ES",
+    "arduino.useArduinoCli": true,
+    "idf.espIdfPath": "/Users/crisadamo/Develop/src/hardware/esp/esp-idf",
+    "idf.pythonBinPath": "/Users/crisadamo/.espressif/python_env/idf5.1_py3.10_env/bin/python",
+    "idf.toolsPath": "/Users/crisadamo/.espressif",
+    "idf.customExtraPaths": "/Users/crisadamo/.espressif/tools/xtensa-esp-elf-gdb/12.1_20221002/xtensa-esp-elf-gdb/bin:/Users/crisadamo/.espressif/tools/riscv32-esp-elf-gdb/12.1_20221002/riscv32-esp-elf-gdb/bin:/Users/crisadamo/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin:/Users/crisadamo/.espressif/tools/xtensa-esp32s2-elf/esp-12.2.0_20230208/xtensa-esp32s2-elf/bin:/Users/crisadamo/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin:/Users/crisadamo/.espressif/tools/riscv32-esp-elf/esp-12.2.0_20230208/riscv32-esp-elf/bin:/Users/crisadamo/.espressif/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/Users/crisadamo/.espressif/tools/openocd-esp32/v0.12.0-esp32-20230419/openocd-esp32/bin:/Users/crisadamo/.espressif/tools/ninja/1.10.2:/Users/crisadamo/.espressif/tools/esp-rom-elfs/20230320",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/Users/crisadamo/.espressif/tools/openocd-esp32/v0.12.0-esp32-20230419/openocd-esp32/share/openocd/scripts",
+        "ESP_ROM_ELF_DIR": "/Users/crisadamo/.espressif/tools/esp-rom-elfs/20230320/"
+    },
+    "idf.gitPath": "git",
+    "svelte.enable-ts-plugin": true,
+    "cSpell.userWords": [
+        "kysely",
+        "Kysely",
+        "libsql",
+        "openai",
+        "whatsapp"
+    ],
+    "redhat.telemetry.enabled": false,
+    "workbench.editor.showTabs": "multiple",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "security.workspace.trust.untrustedFiles": "open",
+    
 }
