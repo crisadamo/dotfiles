@@ -63,20 +63,34 @@ pyenv global 3.10.4
 ```
 
 # MacOS Apps
-- [Google Chrome](https://www.google.com/chrome/) Browser (Free)
-- [iTerm2]() Better terminal app
+## Productivity
+- [Arc](https://arc.net/) Modern Web Browser (Free)
+- [Spark](https://sparkmailapp.com/) Modern Email Client (Paid)
+- [Rise](https://www.risecalendar.com/) Modern Calendar Client (Paid)
+- [Raycast](https://www.raycast.com/)) Better spotlight bar
+- [Rize](https://rize.io/) AI Time Tracking & Productivity Coach (Paid)
+- [Figma](https://www.figma.com/)
+- [Endel](https://endel.io/) Personalized soundscapes (Paid)
+- [1Password](https://1password.com/) Password manager (Paid)
+- [Keybase](https://keybase.io/) Secure storage, messaging and exchange (Free)
+
+## Development
+- [Zed](https://zed.dev/) Modern Text Editor (Free)
+- [WezTerm](https://wezfurlong.org/wezterm/) Better terminal app (Free)
+
+## Utilities
+- [Cascable Pro Webcam](https://cascable.se/pro-webcam/) Turn a DSLR into a webcam (Paid)
 - [Spectacle](https://www.spectacleapp.com/) Windows management/Optimization (Free)
 - [Cheatsheet](https://www.mediaatelier.com/CheatSheet/) App shortcut mapping (Free)
 - [IINA](https://iina.io/) Video Player (Free)
-- [Figma](https://www.figma.com/)
-- [Dropzone](https://aptonic.com/) Productivity file app (Freemium)
-- [Alfred](https://www.alfredapp.com/) Better spotlight bar
 - [SoundControl](https://staticz.com/soundcontrol/) Audio routing and enhancement
+- [NordVPN](https://nordvpn.com/) VPN (Paid)
+- [CleanMyMac X](https://cleanmymac.com/) Mac cleaning app (Paid)
 
 ## Alt
+- [Dropzone](https://aptonic.com/) Productivity file app (Freemium)
 - [Mosaic](https://www.lightpillar.com/mosaic.html) Workspace optimization (Paid)
 - [Bartebder](https://www.macbartender.com/) Menu bar optimization (Paid)
-- [1Password](https://www.1password.com) Password manager (Paid)
 - [SIP](https://sipapp.io/) Better color picker (Paid)
 - [CleanShot](https://cleanshot.com/) Better screen recording and shots (Paid)
 - [PixelMator](https://www.pixelmator.com/pro/) Photoshop alternative (Paid)
