@@ -8,7 +8,8 @@ end
 config.font = wezterm.font 'Menlo'
 config.font_size = 14
 
-config.color_scheme = 'tokyonight_storm'
+config.color_scheme = 'Catppuccin Mocha (Gogh)'
+-- config.color_scheme = 'tokyonight_storm'
 -- config.color_scheme = 'MaterialOcean'
 
 config.hide_tab_bar_if_only_one_tab = true
