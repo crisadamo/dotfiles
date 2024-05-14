@@ -1,0 +1,54 @@
+[user]
+	name = Cristian Adamo
+	email = cristian.adamo@gmail.com
+
+[alias]
+    co = checkout
+    st = status
+    rh = reset HEAD
+    rhh = reset --hard HEAD
+    pu = pull
+    pur = pull --rebase
+    up = push
+    sh = stash
+
+    la = "!git l --all"
+    lr = "!git l -30"
+    lra = "!git lr --all"
+    lg = "!git l -G $1 -- $2"
+    feature = !sh -c 'git checkout --no-track -b $0 origin/main'
+    tree = log --oneline --decorate --graph
+
+[core]
+    excludesfile = ~/.gitignore
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = true
+
+[push]
+    default = current
+    followTags = true
+
+[remote]
+    pushDefault = origin
+
+[branch]
+    autosetuprebase = always
+
+[commit]
+    verbose = true
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
