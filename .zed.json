@@ -9,41 +9,49 @@
 {
   "theme": "Catppuccin Mocha",
   // "ui_font_family": "Zed Sans",
-  "ui_font_family": "Menlo",
+  "ui_font_family": "MesloLGS Nerd Font",
   "ui_font_size": 14,
   // "buffer_font_family": "Zed Mono",
   // "buffer_font_family": "Berkeley Mono Trial",
-  "buffer_font_family": "Menlo",
+  "buffer_font_family": "MesloLGS Nerd Font Mono",
   "buffer_font_size": 14,
-  "buffer_font_features": {
-    "calt": false,
-    "liga": false,
-    "dlig": false,
-    "ss01": false,
-    "ss02": false,
-    "ss03": false,
-    "ss04": false,
-    "ss05": false,
-    "ss06": false,
-    "ss07": false
-  },
+  "buffer_font_features": {},
   "autosave": "on_focus_change",
   "preferred_line_length": 100,
   "wrap_guides": [80, 100],
   "soft_wrap": "editor_width",
+  "hard_tabs": false,
+  "remove_trailing_whitespace_on_save": true,
   "active_pane_magnification": 1.0,
   "vim_mode": false,
+  "terminal": {
+    "font_family": "MesloLGS Nerd Font Mono",
+    "font_size": 14
+  },
   "tabs": {
     "git_status": true
+  },
+  "project_panel": {
+    "button": true,
+    "dock": "left",
+    "git_status": true,
+    "default_width": 250
   },
   "languages": {
     "SQL": {
       "formatter": "prettier"
     },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+        "source.sortImports": false,
+        "source.fixAll.eslint": false
+      }
+    },
     "TSX": {
       "code_actions_on_format": {
         "source.organizeImports": true,
-        "source.sortImports": true,
+        "source.sortImports": false,
         "source.fixAll.eslint": true
       }
     },
@@ -54,13 +62,5 @@
       }
     }
   },
-  "terminal": {
-    "blinking": "on"
-  },
-  "project_panel": {
-    "dock": "left"
-  },
-  "scrollbar": {
-    "show": "system"
-  }
+  "show_copilot_suggestions": true
 }
