@@ -5,12 +5,14 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.font = wezterm.font 'Menlo'
+-- config.font = wezterm.font 'Menlo'
+config.font = wezterm.font "MesloLGS Nerd Font"
 config.font_size = 14
 
-config.color_scheme = 'Catppuccin Mocha (Gogh)'
+
 -- config.color_scheme = 'tokyonight_storm'
 -- config.color_scheme = 'MaterialOcean'
+config.color_scheme = 'Catppuccin Mocha'
 
 config.hide_tab_bar_if_only_one_tab = true
 
