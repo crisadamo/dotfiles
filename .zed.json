@@ -38,6 +38,10 @@
     "default_width": 250
   },
   "languages": {
+    "Make": {
+      "hard_tabs": true,
+      "tab_size": 4
+    },
     "SQL": {
       "formatter": "prettier"
     },
@@ -59,6 +63,12 @@
       "code_actions_on_format": {
         "source.organizeImports": true,
         "source.fixAll.eslint": true
+      }
+    },
+    "JSON": {
+      "prettier": {
+        "allowed": true,
+        "parser": "json"
       }
     }
   },
