@@ -6,16 +6,42 @@
 // To see all of Zed's default settings without changing your
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
+//
+// Use this for deno on a project basis
+// {
+//    "languages": {
+//      "TypeScript": {
+//        "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint", "..."]
+//      },
+//      "TSX": {
+//        "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint", "..."]
+//      }
+//    }
+// }
+//
 {
-  "theme": "Catppuccin Mocha",
+  "theme": {
+    "mode": "light",
+    // "light": "One Light",
+    "light": "Catppuccin Latte - No Italics",
+    // "dark": "One Dark"
+    "dark": "Catppuccin Mocha"
+  },
   // "ui_font_family": "Zed Sans",
-  "ui_font_family": "MesloLGS Nerd Font",
-  "ui_font_size": 14,
+  "ui_font_family": "Zed Plex Sans",
+  // "ui_font_family": "IBM Plex Sans",
+  // "ui_font_family": "MesloLGS Nerd Font",
+  "ui_font_size": 15,
+  // "buffer_font_family": "IBM Plex Mono",
   // "buffer_font_family": "Zed Mono",
+  "buffer_font_family": "Zed Plex Mono",
   // "buffer_font_family": "Berkeley Mono Trial",
-  "buffer_font_family": "MesloLGS Nerd Font Mono",
+  // "buffer_font_family": "MesloLGS Nerd Font Mono",
   "buffer_font_size": 14,
-  "buffer_font_features": {},
+  "buffer_font_features": {
+    "calt": false,
+    "clig": false
+  },
   "autosave": "on_focus_change",
   "preferred_line_length": 100,
   "wrap_guides": [80, 100],
@@ -25,7 +51,8 @@
   "active_pane_magnification": 1.0,
   "vim_mode": false,
   "terminal": {
-    "font_family": "MesloLGS Nerd Font Mono",
+    // "font_family": "MesloLGS Nerd Font Mono",
+    // "font_family": "Zed Plex Mono",
     "font_size": 14
   },
   "tabs": {
@@ -38,6 +65,7 @@
     "default_width": 250
   },
   "languages": {
+    "Plain Text": {},
     "Make": {
       "hard_tabs": true,
       "tab_size": 4
@@ -72,5 +100,5 @@
       }
     }
   },
-  "show_copilot_suggestions": true
+  "show_inline_completions": true
 }
