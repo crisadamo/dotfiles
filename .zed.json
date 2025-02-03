@@ -6,24 +6,20 @@
 // To see all of Zed's default settings without changing your
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
-//
-// Use this for deno on a project basis
-// {
-//    "languages": {
-//      "TypeScript": {
-//        "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint", "..."]
-//      },
-//      "TSX": {
-//        "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint", "..."]
-//      }
-//    }
-// }
-//
 {
+  "assistant": {
+    "default_model": {
+      "provider": "deepseek",
+      "model": "deepseek-reasoner"
+    },
+    "version": "2",
+    "enable_experimental_live_diffs": true
+  },
   "theme": {
-    "mode": "light",
+    //"mode": "light",
+    "mode": "dark",
     // "light": "One Light",
-    "light": "Catppuccin Latte - No Italics",
+    "light": "Catppuccin Latte",
     // "dark": "One Dark"
     "dark": "Catppuccin Mocha"
   },
@@ -31,7 +27,7 @@
   "ui_font_family": "Zed Plex Sans",
   // "ui_font_family": "IBM Plex Sans",
   // "ui_font_family": "MesloLGS Nerd Font",
-  "ui_font_size": 15,
+  "ui_font_size": 16,
   // "buffer_font_family": "IBM Plex Mono",
   // "buffer_font_family": "Zed Mono",
   "buffer_font_family": "Zed Plex Mono",
@@ -58,11 +54,24 @@
   "tabs": {
     "git_status": true
   },
+  "show_inline_completions": true,
   "project_panel": {
     "button": true,
     "dock": "left",
     "git_status": true,
     "default_width": 250
+  },
+  "lsp": {
+    "deno": {
+      "settings": {
+        "deno": {
+          "enable": false
+        }
+      }
+    }
+  },
+  "file_types": {
+    "JSON": [".prettierrc"]
   },
   "languages": {
     "Plain Text": {},
@@ -73,24 +82,37 @@
     "SQL": {
       "formatter": "prettier"
     },
+    "Vue.js": {
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+        "source.sortImports": true,
+        "source.fixAll.eslint": true,
+        "source.fixAll.oxc": true
+      }
+    },
     "TypeScript": {
       "code_actions_on_format": {
         "source.organizeImports": true,
-        "source.sortImports": false,
-        "source.fixAll.eslint": false
+        "source.sortImports": true,
+        "source.fixAll.eslint": false,
+        "source.fixAll.oxc": true
       }
     },
     "TSX": {
       "code_actions_on_format": {
         "source.organizeImports": true,
-        "source.sortImports": false,
-        "source.fixAll.eslint": true
+        "source.sortImports": true,
+        "source.fixAll.eslint": true,
+        "source.fixAll.oxc": true
       }
     },
     "JavaScript": {
       "code_actions_on_format": {
         "source.organizeImports": true,
-        "source.fixAll.eslint": true
+        "source.sortImports": true,
+        "source.fixAll.eslint": true,
+        "source.fixAll.oxc": true
       }
     },
     "JSON": {
@@ -99,6 +121,5 @@
         "parser": "json"
       }
     }
-  },
-  "show_inline_completions": true
+  }
 }
