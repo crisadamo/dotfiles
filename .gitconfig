@@ -3,52 +3,60 @@
 	email = <email>
 
 [alias]
-    co = checkout
-    st = status
-    rh = reset HEAD
-    rhh = reset --hard HEAD
-    pu = pull
-    pur = pull --rebase
-    up = push
-    sh = stash
+	co = checkout
+	st = status
+	rh = reset HEAD
+	rhh = reset --hard HEAD
+	pu = pull
+	pur = pull --rebase
+	up = push
+	sh = stash
+	ff = fetch -av
+	um = "!git ff && git co main && git pu"
 
-    la = "!git l --all"
-    lr = "!git l -30"
-    lra = "!git lr --all"
-    lg = "!git l -G $1 -- $2"
-    feature = !sh -c 'git checkout --no-track -b $0 origin/main'
-    tree = log --oneline --decorate --graph
+	la = "!git l --all"
+	lr = "!git l -30"
+	lra = "!git lr --all"
+	lg = "!git l -G $1 -- $2"
+	feature = !sh -c 'git checkout --no-track -b $0 origin/main'
+	tree = log --oneline --decorate --graph
 
 [core]
-    excludesfile = ~/.gitignore
+	excludesFile = ~/.gitignore
 
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
 
 [pull]
-    rebase = true
+	rebase = true
 
 [push]
-    default = current
-    followTags = true
+	default = current
+	autoSetupRemote = true
+	followTags = true
 
 [remote]
-    pushDefault = origin
+	pushDefault = origin
 
 [branch]
-    autosetuprebase = always
+	autoSetupRebase = always
 
 [commit]
-    verbose = true
+	verbose = true
 
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+	
+[diff "lockb"]
+	textconv = bun
+	binary = true
