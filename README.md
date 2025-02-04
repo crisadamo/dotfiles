@@ -13,15 +13,17 @@ brew install \
   zoxide \
   neovim \
   zig \
-  
+
 ```
-  
+
 ```
 source ~/.zshrc
 ```
 
 
 # MacOS Apps
+> Note: the following apps are mostly installed through brew except Cascable Pro Webcam and Endel
+
 ## Productivity
 - **[Arc](https://arc.net/)** Modern Web Browser (Free)
   - **[Zen Browser](https://www.zen-browser.app/)** Currently testing
