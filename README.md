@@ -3,21 +3,22 @@
 
 ## Install
 
-#### Shell Setup
+This includes my configuration for homebrew, ZSH, git, editor, etc
 
 ```
-brew install \
-  gh \
-  nvm \
-  fzf \
-  zoxide \
-  neovim \
-  zig \
-
+make all
 ```
 
+## Installing with homebrew
+
 ```
-source ~/.zshrc
+brew bundle --file=~/.dotfiles/Brewfile
+```
+
+and
+
+```
+brew bundle --force cleanup --file=~/.dotfiles/Brewfile
 ```
 
 
@@ -33,7 +34,9 @@ source ~/.zshrc
 - **Apple Reminders** Task management app
 - **Apple Freeform** Drawing app
 - **[Rize](https://rize.io/)** AI Time Tracking & Productivity Coach (Paid)
-- **[Endel](https://endel.io/)** Personalized soundscapes (Paid)
+- **[Portal]()
+- **[Endel](https://endel.io/)** Personalized soundscapes (Paid)**
+  > currently I'm testing Opera Air as a free alternative
 - **[1Password](https://1password.com/)** Password manager (Paid)
 - **[Keybase](https://keybase.io/)** Secure storage, messaging and exchange (Free)
 
@@ -53,4 +56,3 @@ source ~/.zshrc
 - **[Audio Hijack](https://rogueamoeba.com/audiohijack/)** Audio routing app
 - **[Wave Central](https://www.waves.com/downloads/central)** audio plugins for Wave Link (Paid)
 - **[SoundControl](https://staticz.com/soundcontrol/)** Audio routing and enhancement
-- **[Cheatsheet](https://www.mediaatelier.com/CheatSheet/)** App shortcut mapping (Free)

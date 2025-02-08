@@ -26,6 +26,7 @@ cask 'discord'
 cask 'rize'
 cask 'claude'
 cask 'chatgpt'
+cask 'raycast'
 
 # Utilities
 cask '1password'
