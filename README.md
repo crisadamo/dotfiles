@@ -27,25 +27,30 @@ brew bundle --force cleanup --file=~/.dotfiles/Brewfile
 
 ## Productivity
 - **[Arc](https://arc.net/)** Modern Web Browser (Free)
-  - **[Zen Browser](https://www.zen-browser.app/)** Currently testing
-- **Apple Mail** Email Client
-- **Apple Calendar** Calendar client
-- **Apple Notes** Note-taking app
-- **Apple Reminders** Task management app
-- **Apple Freeform** Drawing app
-- **[Rize](https://rize.io/)** AI Time Tracking & Productivity Coach (Paid)
-- **[Portal]()
-- **[Endel](https://endel.io/)** Personalized soundscapes (Paid)**
+  - **[Dia Browser](https://diabrowser.com/)/)** Currently testing (Free)
+- **Apple Mail** Email Client (Free)
+- **Apple Calendar** Calendar client (Free)
+- **Apple Notes** Note-taking app (Free)
+- **Apple Reminders** Task management app (Free)
+- **Apple Freeform** Drawing app (Free)
+- ~~**[Rize](https://rize.io/)** AI Time Tracking & Productivity Coach (Paid)~~
+- **[Portal](https://portal.app/)** An Immersive Spatial Audio App For Focus, Sleep & Relaxation (Paid)
+- **[Endel](https://endel.io/)** Personalized soundscapes (Paid)
   > currently I'm testing Opera Air as a free alternative
 - **[1Password](https://1password.com/)** Password manager (Paid)
 - **[Keybase](https://keybase.io/)** Secure storage, messaging and exchange (Free)
+- **[Reycast](https://www.raycast.com/)** Shortcuts for everything & better spotlight (Free)
+- **[Superwisper](https://superwhisper.com/)** AI-powered voice to text (Free)
 
 ## Development
 - **[Zed](https://zed.dev/)** Modern Text Editor (Free)
 - **[Ghostty](https://ghostty.org/)** Better terminal app (Free)
-- **[Beekeeper Studio](https://www.beekeeperstudio.io/)** Database management tool (Paid/Free)
+- **[TablePlus](https://tableplus.com/)** Modern & Native Database management tool (Paid/Free)
+- **[GitButler](https://gitbutler.com/)** Modern GIT Client (Free)
+- ~~**[Beekeeper Studio](https://www.beekeeperstudio.io/)** Database management tool (Paid/Free)~~
 - **[Hoppscotch](https://hoppscotch.com/)** API Client (Free)
-- **[Docker Desktop](https://docs.docker.com/desktop/setup/install/mac-install/)**
+- **[Hurl](https://hurl.dev/)** HTTP CLI client (Free)
+- **[Docker Desktop](https://docs.docker.com/desktop/setup/install/mac-install/)** (Free)
 
 ## Utilities
 - **[Cascable Pro Webcam](https://cascable.se/pro-webcam/)** Turn a DSLR into a webcam (Paid)
