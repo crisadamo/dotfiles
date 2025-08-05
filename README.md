@@ -27,7 +27,7 @@ brew bundle --force cleanup --file=~/.dotfiles/Brewfile
 
 ## Productivity
 - **[Arc](https://arc.net/)** Modern Web Browser (Free)
-  - **[Dia Browser](https://diabrowser.com/)/)** Currently testing (Free)
+  - **[Dia Browser](https://diabrowser.com/)** Currently testing (Free)
 - **Apple Mail** Email Client (Free)
 - **Apple Calendar** Calendar client (Free)
 - **Apple Notes** Note-taking app (Free)
