@@ -1,7 +1,6 @@
 # terminal
 brew 'git'
 brew 'zsh'
-brew 'gh'
 brew 'nvm'
 brew 'fzf'
 brew 'zoxide'
@@ -15,7 +14,7 @@ cask 'arc'
 cask 'spotify'
 cask 'figma'
 cask 'adobe-creative-cloud'
-cask 'zen-browser'
+cask 'thebrowsercompany-dia'
 
 # Messaging
 cask 'whatsapp'
@@ -27,6 +26,7 @@ cask 'rize'
 cask 'claude'
 cask 'chatgpt'
 cask 'raycast'
+cask 'superwhisper'
 
 # Utilities
 cask '1password'
@@ -47,9 +47,20 @@ cask 'iina'
 # Development
 cask 'zed'
 cask 'ghostty'
-cask 'beekeeper-studio'
+cask 'tableplus'
+# cask 'beekeeper-studio'
 cask 'hoppscotch'
+brew 'hurl'
 cask 'docker'
+cask 'gitbutler'
+brew 'gh'
+cask 'claude-code'
+brew 'gemini-cli'
+brew 'HeadstartAI/taps/friday'
+
+# Work
+brew 'linear-linear'
+
 
 # Fonts
 tap 'homebrew/cask-fonts'
