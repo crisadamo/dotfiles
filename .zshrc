@@ -73,25 +73,39 @@ alias vim='nvim'
 alias c='clear'
 alias pyweb="python -m http.server"
 
+# worktrunk
+alias wtcx='wt switch --create --execute=opencode'
+alias wtc='wt switch --create'
+alias wtx='wt switch --execute=opencode'
+alias wts='wt switch'
+
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
-# Load NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-#export DENO_DIR="$HOME/Library/Caches/deno"
-export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH="$HOME/.bun/bin:$PATH"
+
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="$HOME/.bun/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.amp/bin:$PATH"
 
-export GOOGLE_GENAI_API_KEY="<key>"
-export ANTHROPIC_API_KEY="<key>"
-export OPENAI_API_KEY="<key>"
-export DEEPSEEK_API_KEY="<key>"
+# Personal<D-s>
+export FIRECRAWL_API_KEY="<firecrawl-key>"
+
+# dev-cris
+export EXA_API_KEY="<exa-key>"
+export CONTEXT7_API_KEY="<context7-key>"
+export GITHUB_PAT_OC="<github-key>"
+
+export SS_DEV_WORKSPACE_ID='<ss-dev-ws>'
+export SS_API_KEY='<ss-api-key>'
+
+export C_OPENAI_API_KEY="<openai-key>"
+export C_GOOGLE_GENAI_API_KEY="<google-genai-key>"
+export C_GEMINI_API_KEY="<gemini-key>"
+export C_ANTHROPIC_API_KEY="<anthropic-key>"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -101,4 +115,16 @@ if [ -f '$HOME/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/D
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion:
+
+. "$HOME/.langflow/uv/env"
+eval "$(~/.local/bin/mise activate)"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# Added by git-ai installer on Fri Jan 23 13:39:54 -03 2026
+export PATH="$HOME.git-ai/bin:$PATH"
