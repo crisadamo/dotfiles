@@ -4,33 +4,92 @@
 // documentation: https://zed.dev/docs/configuring-zed
 //
 // To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
+// custom settings, run the `open default settings` command~
 // from the command palette or from `Zed` application menu.
 {
-  "assistant": {
-    "default_model": {
-      "provider": "deepseek",
-      "model": "deepseek-reasoner"
+  "git_panel": {
+    "tree_view": true
+  },
+  "edit_predictions": {
+    "provider": "zed",
+    "disabled_globs": [],
+    "mode": "eager",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
     },
-    "version": "2",
-    "enable_experimental_live_diffs": true
+    "enabled_in_text_threads": false
   },
-  "theme": {
-    //"mode": "light",
-    "mode": "dark",
-    // "light": "One Light",
-    "light": "Catppuccin Latte",
-    // "dark": "One Dark"
-    "dark": "Catppuccin Mocha"
+  "icon_theme": "Zed (Default)",
+  "agent_servers": {
+    "claude-code-cli": {
+      "type": "custom",
+      "command": "claude",
+      "args": [],
+      "env": {}
+    }
   },
+  "agent": {
+    "tool_permissions": {
+      "default": "allow"
+    },
+    "profiles": {
+      "pm": {
+        "name": "PM",
+        "tools": {
+          "delete_path": true,
+          "diagnostics": true,
+          "fetch": true,
+          "project_notifications": true,
+          "thinking": true,
+          "terminal": true,
+          "read_file": true,
+          "open": true,
+          "now": true,
+          "move_path": true,
+          "list_directory": true,
+          "grep": true,
+          "find_path": true,
+          "edit_file": true,
+          "create_directory": true,
+          "copy_path": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "mcp-server-context7": {
+            "tools": {
+              "get-library-docs": true
+            }
+          },
+          "linear": {
+            "tools": {
+              "list_my_issues": true,
+              "list_issues": true,
+              "list_documents": true,
+              "list_cycles": true,
+              "list_comments": true,
+              "get_issue_status": true,
+              "get_project": true,
+              "get_issue": true,
+              "get_document": true
+            }
+          }
+        }
+      }
+    },
+    "default_profile": "write",
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-3-flash-preview"
+    }
+  },
+  "theme": "Cursor Dark",
   // "ui_font_family": "Zed Sans",
-  "ui_font_family": "Zed Plex Sans",
-  // "ui_font_family": "IBM Plex Sans",
+  "ui_font_family": "IBM Plex Sans",
   // "ui_font_family": "MesloLGS Nerd Font",
-  "ui_font_size": 16,
-  // "buffer_font_family": "IBM Plex Mono",
+  "ui_font_size": 18,
+  "buffer_font_family": "IBM Plex Mono",
   // "buffer_font_family": "Zed Mono",
-  "buffer_font_family": "Zed Plex Mono",
   // "buffer_font_family": "Berkeley Mono Trial",
   // "buffer_font_family": "MesloLGS Nerd Font Mono",
   "buffer_font_size": 14,
@@ -44,17 +103,26 @@
   "soft_wrap": "editor_width",
   "hard_tabs": false,
   "remove_trailing_whitespace_on_save": true,
-  "active_pane_magnification": 1.0,
+  // "active_pane_modifiers": {
+  //  "magnification": 0.0
+  // },
   "vim_mode": false,
   "terminal": {
     // "font_family": "MesloLGS Nerd Font Mono",
     // "font_family": "Zed Plex Mono",
     "font_size": 14
   },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true,
+      "show_commit_summary": true
+    }
+  },
   "tabs": {
     "git_status": true
   },
-  "show_inline_completions": true,
+  "show_edit_predictions": true,
   "project_panel": {
     "button": true,
     "dock": "left",
@@ -62,10 +130,27 @@
     "default_width": 250
   },
   "lsp": {
-    "deno": {
+    "oxc": {
+      "initialization_options": {
+        "options": {
+          "run": "onType",
+          "configPath": null,
+          "tsConfigPath": null,
+          "unusedDisableDirectives": "allow",
+          "typeAware": false,
+          "flags": {}
+        }
+      }
+    },
+    "json-language-server": {
       "settings": {
-        "deno": {
-          "enable": false
+        "json": {
+          "schemas": [
+            {
+              "fileMatch": ["*/bun.lock"],
+              "url": "https://www.schemastore.org/bun-lock.json"
+            }
+          ]
         }
       }
     }
@@ -74,7 +159,9 @@
     "JSON": [".prettierrc"]
   },
   "languages": {
-    "Plain Text": {},
+    "Plain Text": {
+      "show_edit_predictions": false
+    },
     "Make": {
       "hard_tabs": true,
       "tab_size": 4
@@ -85,6 +172,7 @@
     "Vue.js": {
       "formatter": "prettier",
       "code_actions_on_format": {
+        "source.removeUnusedImports": true,
         "source.organizeImports": true,
         "source.sortImports": true,
         "source.fixAll.eslint": true,
@@ -119,6 +207,227 @@
       "prettier": {
         "allowed": true,
         "parser": "json"
+      }
+    }
+  },
+  "context_servers": {
+    "mcp-server-linear": {
+      "enabled": true,
+      "settings": {
+        "linear_api_key": "${LINEAR_API_KEY}"
+      }
+    },
+    "mcp-server-context7": {
+      "enabled": true,
+      "settings": {
+        "context7_api_key": "${CONTEXT7_API_KEY}"
+      }
+    }
+  },
+  "language_models": {
+    "openai_compatible": {
+      "OpenCode Zen – OpenAI": {
+        "api_url": "https://opencode.ai/zen/v1",
+        "available_models": [
+          {
+            "name": "opencode/gpt-5.1",
+            "display_name": "OpenAI – GPT 5.1",
+            "max_tokens": 400000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/gpt-5.1-codex",
+            "display_name": "OpenAI – GPT 5.1 Codex",
+            "max_tokens": 400000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/gpt-5",
+            "display_name": "OpenAI – GPT 5",
+            "max_tokens": 400000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/gpt-5-codex",
+            "display_name": "OpenAI – GPT 5 Codex",
+            "max_tokens": 400000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/gpt-5-nano",
+            "display_name": "OpenAI – GPT 5 Nano",
+            "max_tokens": 400000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/claude-sonnet-4-5",
+            "display_name": "Anthropic – Claude Sonnet 4.5",
+            "max_tokens": 1000000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/claude-sonnet-4",
+            "display_name": "Anthropic – Claude Sonnet 4",
+            "max_tokens": 1000000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/claude-haiku-4-5",
+            "display_name": "Anthropic – Claude Haiku 4.5",
+            "max_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/claude-3-5-haiku",
+            "display_name": "Anthropic – Claude Haiku 3.5",
+            "max_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/claude-opus-4-1",
+            "display_name": "Anthropic – Claude Opus 4.1",
+            "max_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/claude-opus-4-5",
+            "display_name": "Anthropic – Claude Opus 4.5",
+            "max_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/glm-4.6",
+            "display_name": "Zhipu AI – GLM 4.6",
+            "max_tokens": 204800,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/kimi-k2",
+            "display_name": "Moonshot AI – Kimi K2",
+            "max_tokens": 262144,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/kimi-k2-thinking",
+            "display_name": "Moonshot AI – Kimi K2 Thinking",
+            "max_tokens": 262144,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/qwen3-coder",
+            "display_name": "Alibaba – Qwen3 Coder 480B",
+            "max_tokens": 262144,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false
+            }
+          },
+          {
+            "name": "opencode/grok-code",
+            "display_name": "xAI – Grok Code Fast 1",
+            "max_tokens": 256000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/gemini-3-pro",
+            "display_name": "Google – Gemini 3 Pro",
+            "max_tokens": 1000000,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          },
+          {
+            "name": "opencode/big-pickle",
+            "display_name": "Stealth – Big Pickle",
+            "max_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true
+            }
+          }
+        ]
       }
     }
   }
