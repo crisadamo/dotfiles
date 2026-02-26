@@ -15,14 +15,15 @@ cask 'spotify'
 cask 'figma'
 cask 'adobe-creative-cloud'
 cask 'thebrowsercompany-dia'
+cask 'affinity'
 
 # Messaging
 cask 'whatsapp'
 cask 'slack'
 cask 'discord'
+cask 'telegram'
 
 # Productivity
-cask 'rize'
 cask 'claude'
 cask 'chatgpt'
 cask 'raycast'
@@ -38,6 +39,7 @@ cask 'stats'
 cask 'keybase'
 cask 'nordvpn'
 cask 'iina'
+cask 'tailscale-app'
 
 # cask 'audio-hijack'
 # cask 'sound-control' // v2 needed
@@ -46,17 +48,18 @@ cask 'iina'
 
 # Development
 cask 'zed'
+cask 'antigravity'
 cask 'ghostty'
 cask 'tableplus'
-# cask 'beekeeper-studio'
 cask 'hoppscotch'
 brew 'hurl'
 cask 'docker'
-cask 'gitbutler'
 brew 'gh'
 cask 'claude-code'
 brew 'gemini-cli'
-brew 'HeadstartAI/taps/friday'
+cask 'codex'
+cask 'codex-app'
+brew 'anomalyco/tap/opencode'
 
 # Work
 brew 'linear-linear'
