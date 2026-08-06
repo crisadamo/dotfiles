@@ -1,66 +1,89 @@
+# set arguments for all 'brew install --cask' commands
+# Note: require_sha disabled to prevent installation failures
+cask_args appdir: "/Applications"
+
 # terminal
 brew 'git'
 brew 'zsh'
 brew 'nvm'
+brew "fd"
 brew 'fzf'
+brew "ripgrep"
 brew 'zoxide'
 brew 'neovim'
-brew 'zig'
 brew 'rustup'
 brew 'cmake'
 brew 'coreutils'
+brew 'jq'
+brew 'just'
+brew 'mise'
+brew "ripgrep"
+brew "shellcheck"
+brew "starship"
+brew "stow"
+brew "gnu-sed"
+brew "gnupg"
+brew "herdr"
+brew "cloudflared"
+brew "direnv"
+brew "cloc"
+cask "orbstack"
 
-cask 'arc'
 cask 'spotify'
 cask 'figma'
-cask 'adobe-creative-cloud'
-cask 'thebrowsercompany-dia'
 
 # Messaging
 cask 'whatsapp'
 cask 'slack'
 cask 'discord'
+cask 'telegram'
 
 # Productivity
-cask 'rize'
-cask 'claude'
-cask 'chatgpt'
 cask 'raycast'
-cask 'superwhisper'
+cask 'aside'
+cask 'affinity'
+cask 'tolaria'
+cask 'hermes-desktop'
+
 
 # Utilities
+cask 'handy'
 cask '1password'
 cask '1password-cli'
 cask 'cleanmymac'
+cask 'vorssaint'
+brew "mole"
 cask 'elgato-wave-link'
-cask 'keepingyouawake'
-cask 'stats'
 cask 'keybase'
 cask 'nordvpn'
+brew 'tailscale'
+cask 'codexbar'
 cask 'iina'
+brew "ffmpeg"
+brew 'handbrake'
+cask "yaak@beta"
 
 # cask 'audio-hijack'
 # cask 'sound-control' // v2 needed
 # cask 'soundsource'
-# cask 'istat-menus'
 
 # Development
 cask 'zed'
-cask 'ghostty'
+cask 'claude'
+cask 'chatgpt'
+cask 'cursor'
+cask 'cursor-cli'
+cask 'grok-build'
+cask 'claude-code'
+
+cask 'ghostty' # use kero
 cask 'tableplus'
-# cask 'beekeeper-studio'
 cask 'hoppscotch'
 brew 'hurl'
-cask 'docker'
-cask 'gitbutler'
 brew 'gh'
-cask 'claude-code'
-brew 'gemini-cli'
-brew 'HeadstartAI/taps/friday'
 
 # Work
 brew 'linear-linear'
-
 
 # Fonts
 tap 'homebrew/cask-fonts'
