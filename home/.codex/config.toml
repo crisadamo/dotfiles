@@ -1,0 +1,141 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+
+approval_policy = "on-request"
+approvals_reviewer = "guardian_subagent"
+sandbox_mode = "workspace-write"
+# model_catalog_json = "/Users/crisadamo/.codex/opencodex-catalog.json"
+# Auto-injected by opencodex
+# openai_base_url = "http://127.0.0.1:10100/v1"
+
+[features]
+apps = true
+hooks = true
+multi_agent = true
+prevent_idle_sleep = true
+memories = true
+js_repl = false
+fast_mode = true
+chronicle = true
+
+[desktop.open-in-target-preferences]
+global = "zed"
+
+[memories]
+generate_memories = true
+use_memories = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+[desktop]
+ambient-suggestions-enabled = true
+appearanceTheme = "dark"
+appearanceLightCodeThemeId = "codex"
+appearanceDarkCodeThemeId = "nord"
+sansFontSize = 14
+codeFontSize = 14
+usePointerCursors = false
+localeOverride = "en-US"
+preventSleepWhileRunning = true
+keepRemoteControlAwakeWhilePluggedIn = true
+git-commit-instructions = """
+You are an expert at writing Git commits. Your job is to write a short clear commit message that summarizes the changes using conventional commit format.
+
+# CONVENTIONAL COMMIT TEMPLATE
+
+Subject line (required, max 50 characters, use imperative mood):
+<type>(<scope>): <short description>
+Example: feat(user-authentication): Implement two-factor authentication
+
+Body (optional, wrap at 72 characters, explain the change in more detail, mention why and what):
+<detailed description>
+
+# TYPES OF CHANGE (choose one):
+- feat:       A new feature
+- fix:        A bug fix
+- docs:       Documentation changes
+- style:      Code style changes (formatting, etc.)
+- refactor:   Code refactoring (no new features or bug fixes)
+- perf:       Performance improvements
+- test:       Adding or modifying tests
+- build:      Changes that affect the build system or external dependencies
+- ci:         Changes to CI configuration files and scripts
+- chore:      Routine tasks, build process changes, etc.
+- revert:     Revert a previous commit
+
+# SCOPE (optional, specify the affected area, e.g., component, module):
+
+# COMMIT MESSAGE FULL EXAMPLE
+
+```
+feat(py/plugins/vertexai): Implement two-factor authentication
+
+This commit introduces two-factor authentication for enhanced security.
+It uses TOTP and requires users to configure an authenticator app.
+
+Changelog:
+- [ ] Add support for two-factor authentication
+- [ ] Update user login endpoint to require two-factor authentication
+
+BREAKING CHANGE: The API endpoint for user login has been modified.
+
+Issue IDs: #123
+```
+
+Only return the commit message in your response. Do not include any additional meta-commentary about the task. Do not include the raw diff output in the commit message.
+
+Follow good Git style:
+
+- Separate the subject from the body with a blank line
+- Try to limit the subject line to 50 characters
+- Capitalize the subject line
+- Do not end the subject line with any punctuation
+- Use the imperative mood in the subject line
+- Wrap the body at 72 characters
+
+"""
+conversationDetailMode = "STEPS_COMMANDS"
+selected-avatar-id = "null-signal"
+dock-icon-preference = "app-default"
+git-branch-prefix = "atlas/"
+useFontSmoothing = true
+followUpQueueMode = "queue"
+enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "max"]
+realtimeVoiceScreenContextEnabled = true
+show-context-window-usage = true
+appearanceDiffMarkerStyle = "symbols"
+notifications-turn-mode = "always"
+avatar-overlay-mascot-width-px = 95
+
+[desktop.appearanceLightChromeTheme]
+accent = "#0169cc"
+contrast = 75
+ink = "#0d0d0d"
+opaqueWindows = false
+surface = "#ffffff"
+
+[desktop.appearanceLightChromeTheme.fonts]
+code = '"IBM Plex Mono"'
+ui = '"IBM Plex Sans"'
+
+[desktop.appearanceLightChromeTheme.semanticColors]
+diffAdded = "#00a240"
+diffRemoved = "#e02e2a"
+skill = "#751ed9"
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#000000"
+contrast = 75
+ink = "#cccccc"
+opaqueWindows = true
+surface = "#0a0a0a"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+code = "IBM Plex Mono"
+ui = "IBM Plex Sans"
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#a3be8c"
+diffRemoved = "#bf616a"
+skill = "#b48ead"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deliver High-Quality Software"
+  short_description: "Design and deliver robust software systems"
+  default_prompt: "Use $deliver-high-quality-software to design and implement this solution with explicit contracts, sound abstractions, failure-aware architecture, and evidence-based verification."

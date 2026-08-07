@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Review As Cris"
+  short_description: "Cris-style code review with naming rigor"
+  default_prompt: "Use $code-review-as-cris to review this PR through Cris's engineering lens."

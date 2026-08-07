@@ -1,0 +1,491 @@
+
+[model."gpt-5.6-sol"]
+model = "gpt-5.6-sol"
+base_url = "http://127.0.0.1:10100/v1"
+name = "GPT-5.6 Sol"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."gpt-5.6-terra"]
+model = "gpt-5.6-terra"
+base_url = "http://127.0.0.1:10100/v1"
+name = "GPT-5.6 Terra"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."gpt-5.6-luna"]
+model = "gpt-5.6-luna"
+base_url = "http://127.0.0.1:10100/v1"
+name = "GPT-5.6 Luna"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."gpt-5.5"]
+model = "gpt-5.5"
+base_url = "http://127.0.0.1:10100/v1"
+name = "GPT-5.5 (Codex)"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."gpt-5.4"]
+model = "gpt-5.4"
+base_url = "http://127.0.0.1:10100/v1"
+name = "GPT-5.4 (Codex)"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."gpt-5.4-mini"]
+model = "gpt-5.4-mini"
+base_url = "http://127.0.0.1:10100/v1"
+name = "GPT-5.4 Mini (Codex)"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 400_000
+max_completion_tokens = 128_000
+
+[model."cursor/composer-2.5"]
+model = "cursor/composer-2.5"
+base_url = "http://127.0.0.1:10100/v1"
+name = "Cursor Composer 2.5"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."cursor/composer-2.5-fast"]
+model = "cursor/composer-2.5-fast"
+base_url = "http://127.0.0.1:10100/v1"
+name = "Cursor Composer 2.5 Fast"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."anthropic/claude-fable-5"]
+model = "anthropic/claude-fable-5"
+base_url = "http://127.0.0.1:10100/v1"
+name = "Claude Fable 5"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."anthropic/claude-opus-4-8"]
+model = "anthropic/claude-opus-4-8"
+base_url = "http://127.0.0.1:10100/v1"
+name = "Claude Opus 4.8"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."anthropic/claude-sonnet-5"]
+model = "anthropic/claude-sonnet-5"
+base_url = "http://127.0.0.1:10100/v1"
+name = "Claude Sonnet 5"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model."anthropic/claude-haiku-4-5"]
+model = "anthropic/claude-haiku-4-5"
+base_url = "http://127.0.0.1:10100/v1"
+name = "Claude Haiku 4.5"
+api_backend = "responses"
+api_key = "opencodex-loopback"
+context_window = 1_000_000
+max_completion_tokens = 128_000
+
+[model.ocx-gpt-5-6-sol]
+model = "gpt-5.6-sol"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX gpt-5.6-sol"
+context_window = 372_000
+
+[model.ocx-gpt-5-6-sol.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-gpt-5-6-terra]
+model = "gpt-5.6-terra"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX gpt-5.6-terra"
+context_window = 372_000
+
+[model.ocx-gpt-5-6-terra.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-gpt-5-6-luna]
+model = "gpt-5.6-luna"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX gpt-5.6-luna"
+context_window = 372_000
+
+[model.ocx-gpt-5-6-luna.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-gpt-5-5]
+model = "gpt-5.5"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX gpt-5.5"
+context_window = 272_000
+
+[model.ocx-gpt-5-5.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-gpt-5-4]
+model = "gpt-5.4"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX gpt-5.4"
+context_window = 1_000_000
+
+[model.ocx-gpt-5-4.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-gpt-5-4-mini]
+model = "gpt-5.4-mini"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX gpt-5.4-mini"
+
+[model.ocx-gpt-5-4-mini.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-gpt-5-3-codex-spark]
+model = "gpt-5.3-codex-spark"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX gpt-5.3-codex-spark"
+context_window = 100_000
+
+[model.ocx-gpt-5-3-codex-spark.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-anthropic-claude-fable-5]
+model = "anthropic/claude-fable-5"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX anthropic/claude-fable-5"
+context_window = 1_000_000
+
+[model.ocx-anthropic-claude-fable-5.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-anthropic-claude-haiku-4-5]
+model = "anthropic/claude-haiku-4-5"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX anthropic/claude-haiku-4-5"
+context_window = 200_000
+
+[model.ocx-anthropic-claude-haiku-4-5.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-anthropic-claude-opus-4-8]
+model = "anthropic/claude-opus-4-8"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX anthropic/claude-opus-4-8"
+context_window = 1_000_000
+
+[model.ocx-anthropic-claude-opus-4-8.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-anthropic-claude-opus-5]
+model = "anthropic/claude-opus-5"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX anthropic/claude-opus-5"
+context_window = 1_000_000
+
+[model.ocx-anthropic-claude-opus-5.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-anthropic-claude-sonnet-4-6]
+model = "anthropic/claude-sonnet-4-6"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX anthropic/claude-sonnet-4-6"
+context_window = 1_000_000
+
+[model.ocx-anthropic-claude-sonnet-4-6.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-anthropic-claude-sonnet-5]
+model = "anthropic/claude-sonnet-5"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX anthropic/claude-sonnet-5"
+context_window = 1_000_000
+
+[model.ocx-anthropic-claude-sonnet-5.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-auto]
+model = "cursor/auto"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/auto"
+context_window = 200_000
+
+[model.ocx-cursor-auto.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-auto-balance]
+model = "cursor/auto-balance"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/auto-balance"
+context_window = 200_000
+
+[model.ocx-cursor-auto-balance.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-auto-cost]
+model = "cursor/auto-cost"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/auto-cost"
+context_window = 200_000
+
+[model.ocx-cursor-auto-cost.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-auto-intelligence]
+model = "cursor/auto-intelligence"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/auto-intelligence"
+context_window = 200_000
+
+[model.ocx-cursor-auto-intelligence.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-claude-opus-5]
+model = "cursor/claude-opus-5"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/claude-opus-5"
+context_window = 200_000
+
+[model.ocx-cursor-claude-opus-5.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-composer-2-5]
+model = "cursor/composer-2.5"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/composer-2.5"
+context_window = 200_000
+
+[model.ocx-cursor-composer-2-5.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-composer-2-5-fast]
+model = "cursor/composer-2.5-fast"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/composer-2.5-fast"
+context_window = 200_000
+
+[model.ocx-cursor-composer-2-5-fast.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-gemini-3-5-flash]
+model = "cursor/gemini-3.5-flash"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/gemini-3.5-flash"
+context_window = 200_000
+
+[model.ocx-cursor-gemini-3-5-flash.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-glm-5-2]
+model = "cursor/glm-5.2"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/glm-5.2"
+context_window = 1_000_000
+
+[model.ocx-cursor-glm-5-2.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-grok-4-5]
+model = "cursor/grok-4.5"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/grok-4.5"
+context_window = 500_000
+
+[model.ocx-cursor-grok-4-5.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-grok-4-5-fast]
+model = "cursor/grok-4.5-fast"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/grok-4.5-fast"
+context_window = 500_000
+
+[model.ocx-cursor-grok-4-5-fast.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-kimi-k2-7-code]
+model = "cursor/kimi-k2.7-code"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/kimi-k2.7-code"
+context_window = 262_144
+
+[model.ocx-cursor-kimi-k2-7-code.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-cursor-kimi-k3]
+model = "cursor/kimi-k3"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX cursor/kimi-k3"
+context_window = 262_144
+
+[model.ocx-cursor-kimi-k3.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-google-antigravity-claude-opus-4-6-thinking]
+model = "google-antigravity/claude-opus-4-6-thinking"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX google-antigravity/claude-opus-4-6-thinking"
+context_window = 1_000_000
+
+[model.ocx-google-antigravity-claude-opus-4-6-thinking.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-google-antigravity-claude-sonnet-4-6]
+model = "google-antigravity/claude-sonnet-4-6"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX google-antigravity/claude-sonnet-4-6"
+context_window = 200_000
+
+[model.ocx-google-antigravity-claude-sonnet-4-6.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-google-antigravity-gemini-3-1-flash-image]
+model = "google-antigravity/gemini-3.1-flash-image"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX google-antigravity/gemini-3.1-flash-image"
+context_window = 1_048_576
+
+[model.ocx-google-antigravity-gemini-3-1-flash-image.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-google-antigravity-gemini-3-1-pro]
+model = "google-antigravity/gemini-3.1-pro"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX google-antigravity/gemini-3.1-pro"
+context_window = 1_048_576
+
+[model.ocx-google-antigravity-gemini-3-1-pro.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-google-antigravity-gemini-3-6-flash]
+model = "google-antigravity/gemini-3.6-flash"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX google-antigravity/gemini-3.6-flash"
+context_window = 1_048_576
+
+[model.ocx-google-antigravity-gemini-3-6-flash.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-google-antigravity-gpt-oss-120b-medium]
+model = "google-antigravity/gpt-oss-120b-medium"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX google-antigravity/gpt-oss-120b-medium"
+context_window = 131_072
+
+[model.ocx-google-antigravity-gpt-oss-120b-medium.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-xai-grok-4-5]
+model = "xai/grok-4.5"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX xai/grok-4.5"
+context_window = 500_000
+
+[model.ocx-xai-grok-4-5.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-xai-grok-build-0-1]
+model = "xai/grok-build-0.1"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX xai/grok-build-0.1"
+context_window = 256_000
+
+[model.ocx-xai-grok-build-0-1.extra_headers]
+x-opencodex-grok = "1"
+
+[model.ocx-xai-grok-composer-2-5-fast]
+model = "xai/grok-composer-2.5-fast"
+base_url = "http://127.0.0.1:10100/v1"
+api_backend = "chat_completions"
+api_key = "opencodex-loopback"
+name = "OCX xai/grok-composer-2.5-fast"
+
+[model.ocx-xai-grok-composer-2-5-fast.extra_headers]
+x-opencodex-grok = "1"

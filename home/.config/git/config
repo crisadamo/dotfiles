@@ -1,0 +1,94 @@
+[alias]
+	co = checkout
+	st = status
+	rh = reset HEAD
+	rhh = reset --hard HEAD
+	pu = pull
+	pur = pull --rebase
+	up = push
+	sh = stash
+	ff = fetch -av
+	um = "!git ff && git co main && git pu"
+
+	la = "!git l --all"
+	lr = "!git l -30"
+	lra = "!git lr --all"
+	lg = "!git l -G $1 -- $2"
+	feature = !sh -c 'git checkout --no-track -b $0 origin/main'
+	tree = log --oneline --decorate --graph
+
+	fomo = "!git fetch origin $(__git.default_branch) && git rebase origin/$(__git.default_branch) --autostash"
+	lg = "!git_log_n $argv"
+	nuke = "!git add --all && git stash && git stash clear"
+
+[core]
+    editor = "nvim"
+	fsmonitor = true
+	excludesFile = ~/.gitignore
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+
+[column]
+	ui = "auto"
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	default = current
+	autoSetupRemote = true
+	followTags = true
+
+[rebase]
+	updateRefs = true
+
+[remote]
+	pushDefault = origin
+
+[fetch]
+	prune = true
+	writeCommitGraph = true
+
+[branch]
+    sort = "-committerdate"
+	autoSetupRebase = always
+
+[commit]
+	verbose = true
+
+[rerere]
+	enabled = true
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[diff "lockb"]
+	textconv = bun
+	binary = true
+
+[user]
+	name = "Cristian Adamo"
+	email = "<personal-email>"
+	signingKey = "~/.ssh/<key-name>.pub"
+
+[includeIf "gitdir:~/Dev/ws-patagon/"]
+	path = "~/.config/git/work_config"
+
+[credential "https://github.com"]
+	helper =
+	helper = "!gh auth git-credential"
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = "!gh auth git-credential"

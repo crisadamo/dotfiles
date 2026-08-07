@@ -1,0 +1,11 @@
+[git_status]
+# disabled = true
+
+[git_commit]
+# disabled = true
+
+[git_state]
+# disabled = true
+#
+[gcloud]
+disabled = true

@@ -1,0 +1,4 @@
+[user]
+	name = "Cristian Adamo"
+	email = "<work-email>"
+	signingkey = "~/.ssh/<key-name>.pub"

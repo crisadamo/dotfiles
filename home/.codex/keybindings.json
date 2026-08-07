@@ -1,0 +1,14 @@
+[
+  {
+    "command": "globalDictationHold",
+    "key": "Ctrl+Command+Alt+Shift+X"
+  },
+  {
+    "command": "hotkeyWindow",
+    "key": "Ctrl+Command+Alt+Shift+O"
+  },
+  {
+    "command": "realtimeVoice",
+    "key": "Ctrl+Command+Alt+Shift+V"
+  }
+]

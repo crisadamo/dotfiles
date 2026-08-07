@@ -1,0 +1,4 @@
+interface:
+  display_name: "Senior TypeScript Engineer"
+  short_description: "Design and review robust TypeScript systems"
+  default_prompt: "Use $senior-typescript-engineer to design, implement, or review this TypeScript change with strong correctness and maintainability."
