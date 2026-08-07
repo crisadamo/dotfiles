@@ -1,0 +1,120 @@
+home/.agents/skills/bro/SKILL.md
+  h_d583152d6f694d 1-7
+home/.agents/skills/check-work/SKILL.md
+  h_d583152d6f694d 1-296
+home/.agents/skills/code-review-as-cris/SKILL.md
+  h_d583152d6f694d 1-210
+home/.agents/skills/code-review-as-cris/agents/openai.yaml
+  h_d583152d6f694d 1-4
+home/.agents/skills/code-review-as-cris/references/deno-style.md
+  h_d583152d6f694d 1-32
+home/.agents/skills/code-review/SKILL.md
+  h_d583152d6f694d 1-192
+home/.agents/skills/deliver-high-quality-software/SKILL.md
+  h_d583152d6f694d 1-156
+home/.agents/skills/deliver-high-quality-software/agents/openai.yaml
+  h_d583152d6f694d 1-4
+home/.agents/skills/deliver-high-quality-software/references/engineering-standard.md
+  h_d583152d6f694d 1-170
+home/.agents/skills/deliver-high-quality-software/references/review-and-verification.md
+  h_d583152d6f694d 1-170
+home/.agents/skills/deliver-high-quality-software/references/typescript-standard.md
+  h_d583152d6f694d 1-133
+home/.agents/skills/design-ui/SKILL.md
+  h_d583152d6f694d 1-121
+home/.agents/skills/design-ui/references/animations.md
+  h_d583152d6f694d 1-379
+home/.agents/skills/design-ui/references/performance.md
+  h_d583152d6f694d 1-88
+home/.agents/skills/design-ui/references/refined-ui.md
+  h_d583152d6f694d 1-384
+home/.agents/skills/design-ui/references/surfaces.md
+  h_d583152d6f694d 1-247
+home/.agents/skills/design-ui/references/typography.md
+  h_d583152d6f694d 1-123
+home/.agents/skills/design/SKILL.md
+  h_d583152d6f694d 1-345
+home/.agents/skills/execute-plan/SKILL.md
+  h_d583152d6f694d 1-1273
+home/.agents/skills/execute-plan/scripts/validate-plan.py
+  h_d583152d6f694d 1-379
+home/.agents/skills/implement/SKILL.md
+  h_d583152d6f694d 1-1017
+home/.agents/skills/implement/scripts/memory.py
+  h_d583152d6f694d 1-1043
+home/.agents/skills/implement/tests/test_memory.py
+  h_d583152d6f694d 1-882
+home/.agents/skills/pr-babysit/SKILL.md
+  h_d583152d6f694d 1-927
+home/.agents/skills/review/SKILL.md
+  h_d583152d6f694d 1-589
+home/.agents/skills/senior-typescript-engineer/SKILL.md
+  h_d583152d6f694d 1-106
+home/.agents/skills/senior-typescript-engineer/agents/openai.yaml
+  h_d583152d6f694d 1-4
+home/.codex/config.toml
+  h_d583152d6f694d 1-141
+home/.codex/keybindings.json
+  h_d583152d6f694d 1-14
+home/.codex/rules/default.rules
+  h_d583152d6f694d 1-16
+home/.config/git/config
+  h_d583152d6f694d 20-23,25-26,36-38,50-52,56-59,61,67-69,75,79-94
+home/.config/git/work_config
+  h_d583152d6f694d 1-4
+home/.config/nvim/.gitignore
+  h_d583152d6f694d 1-8
+home/.config/nvim/.neoconf.json
+  h_d583152d6f694d 1-6,8-13
+home/.config/nvim/LICENSE
+  h_d583152d6f694d 1-201
+home/.config/nvim/README.md
+  h_d583152d6f694d 1-4
+home/.config/nvim/init.lua
+  h_d583152d6f694d 1-2
+home/.config/nvim/lazy-lock.json
+  h_d583152d6f694d 1-44
+home/.config/nvim/lazyvim.json
+  h_d583152d6f694d 1-19
+home/.config/nvim/lua/config/autocmds.lua
+  h_d583152d6f694d 1-8
+home/.config/nvim/lua/config/keymaps.lua
+  h_d583152d6f694d 1-3
+home/.config/nvim/lua/config/lazy.lua
+  h_d583152d6f694d 1-53
+home/.config/nvim/lua/config/options.lua
+  h_d583152d6f694d 1-3
+home/.config/nvim/lua/plugins/anysphere.lua
+  h_d583152d6f694d 1-11
+home/.config/nvim/lua/plugins/example.lua
+  h_d583152d6f694d 1-53,55-62,64-90,92-110,112-194,196-197
+home/.config/nvim/stylua.toml
+  h_d583152d6f694d 1-3
+home/.config/secrets/shell.env
+  h_d583152d6f694d 1-14
+home/.config/starship.toml
+  h_d583152d6f694d 1-11
+home/.config/zed/settings.json
+  h_d583152d6f694d 2-3,5,7-9,11,13,27,40-55,61-72,74-85,87-218,221-231,234-244,246-257,259-260,262-270
+home/.grok/config.toml
+  h_d583152d6f694d 1-21
+home/.grok/opencodex-models.toml
+  h_d583152d6f694d 1-491
+home/.plannotator/config.json
+  h_d583152d6f694d 1-17
+home/.zshrc
+  h_d583152d6f694d 65-66,69-77
+packages/macos.Brewfile
+  h_d583152d6f694d 3,6-8,11-17,21-33,40,42,58,65,67,83-84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "efaa94172db65a1cfd2801dfca9f5aced6e6321d",
+  "prompts": {},
+  "humans": {
+    "h_d583152d6f694d": {
+      "author": "Cristian Adamo <cristian.adamo@gmail.com>"
+    }
+  }
+}
