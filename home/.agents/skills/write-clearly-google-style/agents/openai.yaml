@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Clearly, Google Style"
+  short_description: "Draft and edit clear developer documentation"
+  default_prompt: "Use $write-clearly-google-style to revise this developer documentation for clarity, consistency, accessibility, and technical correctness."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Systems Design Coach"
+  short_description: "Sharpen systems decomposition and engineering taste"
+  default_prompt: "Use $systems-design-coach to challenge my decomposition before we design the architecture."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Conceptual Integrity Review"
+  short_description: "Review PRs and codebases for conceptual integrity"
+  default_prompt: "Use $review-conceptual-integrity to review this PR or codebase from first principles and identify unnecessary complexity."

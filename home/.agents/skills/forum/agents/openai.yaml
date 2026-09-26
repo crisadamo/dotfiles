@@ -1,0 +1,4 @@
+interface:
+  display_name: "Forum"
+  short_description: "Convene three AI models and synthesize their best"
+  default_prompt: "Use $forum to convene three models on this prompt and return their strongest combined answer."

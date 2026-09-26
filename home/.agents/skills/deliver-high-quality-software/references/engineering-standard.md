@@ -1,170 +1,225 @@
-# Review and Verification Standard
+# Engineering Design Standard
 
-Use this reference to classify risk, prepare or review designs, audit code, plan verification, and determine release readiness.
+Use this reference to design or evaluate modules, architectures, public APIs, distributed behavior, and data ownership.
 
 ## Contents
 
-1. Risk tiers
-2. Design brief
-3. Pre-mortem
-4. Review scorecard
-5. Risk-to-evidence matrix
-6. Verification order
-7. Hard stops
-8. Handoff format
+1. Quality model
+2. Complexity and abstraction
+3. System structure and ownership
+4. System-design principles
+5. Failure and distributed behavior
+6. API and SDK design
+7. Change and migration
+8. Contextual choices
 
-## 1. Risk Tiers
+## 1. Quality Model
 
-| Tier   | Examples                                                                                                                                  | Implementation/release process                                                                       |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Low    | local reversible implementation inside one module                                                                                         | contract, focused test, diff review                                                                  |
-| Medium | new capability, cross-module dependency, internal API, meaningful state change, moderate migration                                        | short design brief, credible alternative, seam evidence, independent review                          |
-| High   | public API, durable schema, auth/security, money, distributed coordination, new service, foundational abstraction, irreversible migration | full brief, two designs, pre-mortem, staged rollout, rollback, independent reviewers, broad evidence |
+Evaluate quality across four boundaries:
 
-Risk follows blast radius, irreversibility, data/security exposure, distributed failure, and compatibility—not line count.
+| Boundary | Required question |
+|---|---|
+| Trust | Where does an external claim become a valid domain fact? |
+| Effects | Where do time, randomness, I/O, persistence, concurrency, and vendors enter? |
+| Failure | What can partially succeed, repeat, time out, cancel, overload, or become unavailable? |
+| Change | How do old callers, deployments, data, and operators coexist with the new version? |
 
-For review-only work, use the tier to determine scrutiny and severity. Do not require the reviewer to author the full implementation process when the supplied artifact cannot establish it; report missing design or runtime evidence as a scoped finding or limitation.
+Treat quality as sustained changeability under real constraints, not conformance to a pattern catalog.
 
-## 2. Design Brief
+## 2. Complexity and Abstraction
 
-For medium/high-risk work, document:
+### Detect complexity
 
-1. Problem, consumers, stakeholders, and non-goals.
-2. Requirements, invariants, and success measures.
-3. Existing behavior and constraints.
-4. Trust boundaries, authorization, and sensitive data.
-5. Source of truth, writers, consistency, and concurrency.
-6. Proposed modules, APIs, and dependency direction.
-7. Failure, timeout, retry, cancellation, idempotency, and overload behavior.
-8. Scale assumptions and safety margins.
-9. Strongest credible alternative and why it loses.
-10. Likely future-change simulations.
-11. Migration, compatibility, rollout, rollback, and cleanup.
-12. Observability and verification evidence.
-13. Open questions and assumptions still needing evidence.
+Use three symptoms:
 
-Revise the brief after criticism and implementation learning. Do not preserve a false history.
+- **Change amplification:** one conceptual change requires edits across many locations.
+- **Cognitive load:** a developer must retain many facts to make a safe change.
+- **Unknown unknowns:** important dependencies or failure behavior are difficult to discover.
 
-## 3. Pre-Mortem
+### Prefer deep modules
 
-Ask before implementation or release:
+A useful module exposes a smaller interface than the complexity it hides. It owns a coherent decision, invariant, protocol, policy, or lifecycle.
 
-- What if each dependency is slow, unavailable, or returns malformed data?
-- What if an external effect succeeds and the local durable write fails?
-- What if the same operation runs twice or out of order?
-- What if two writers race?
-- What if old and new deployments overlap?
-- What if migration stops partway?
-- What if authorization context is missing or stale?
-- What if load, payload size, or cardinality is 10x?
-- What if cancellation occurs at every await/effect boundary?
-- What evidence lets an operator distinguish these cases?
+Reject abstractions that:
 
-Require the design to answer relevant scenarios or explicitly accept the risk.
+- forward nearly every parameter unchanged;
+- mirror a framework or database table without domain policy;
+- offer generic names such as manager, helper, service, base, or utils without a clear contract;
+- require callers to reproduce validation, ordering, retries, serialization, or provider rules;
+- anticipate hypothetical variation with no credible change scenario.
 
-## 4. Review Scorecard
+### Design it twice
 
-Evaluate each dimension as **missing**, **plausible**, or **evidenced**. Do not average away a critical missing dimension.
+For medium/high-risk choices, compare a simple design with the strongest credible alternative. Simulate:
 
-| Dimension       | Review questions                                                                             |
-| --------------- | -------------------------------------------------------------------------------------------- |
-| Contract        | Are outcome, invariants, failures, non-goals, and compatibility explicit?                    |
-| Trust/security  | Are all inputs, identities, authority, and safe defaults enforced at every operation?        |
-| Complexity      | Does the abstraction hide a decision? Is change amplification bounded?                       |
-| Ownership       | Is durable truth and writer/consistency policy explicit?                                     |
-| API             | Is the common path obvious, behavior stable, and evolution additive?                         |
-| Time/failure    | Are deadlines, cancellation, retries, idempotency, and partial success designed?             |
-| Migration       | Can old/new code and data coexist? Is rollback real after mutation?                          |
-| Evidence        | Do tests/prototypes/measurements falsify the important risks at real seams?                  |
-| Operations      | Are outcomes, versions, attempts, dependencies, correlation, and redaction observable?       |
-| Discoverability | Can a new human or agent find ownership, entrypoints, commands, invariants, and constraints? |
+- the next likely feature;
+- a dependency replacement;
+- a failure and recovery path;
+- an old/new compatibility period;
+- an operator diagnosing an incident.
 
-For high-risk work, require every critical dimension to be evidenced before release or formally accepted by the accountable owner.
+Prefer the design with lower total cognitive and migration cost, not automatically the fewest current lines.
 
-### Findings-first code review
+### Keep layers distinct
 
-Lead with actionable defects, ordered by consequence:
+Each layer must add a different abstraction:
 
-- **P0:** active or imminent catastrophic failure; stop release or operation.
-- **P1:** likely correctness, security, data-loss, or severe reliability defect; fix before merge/release.
-- **P2:** material maintainability, compatibility, diagnosability, or edge-case risk; fix deliberately.
-- **P3:** optional improvement with bounded impact; do not present as a blocker.
+- domain: facts, invariants, decisions, state transitions;
+- application: use-case orchestration and owned capabilities;
+- adapters: translation to storage, transport, frameworks, and vendors;
+- bootstrap: configuration and composition.
 
-For each finding, provide the smallest useful code/location reference, a concrete trigger or failure scenario, the user/system consequence, what evidence supports the claim, and a focused fix direction. Do not inflate style preferences into defects. If review scope is limited to a snippet or document, state which repository, runtime, deployment, and test claims remain unverified.
+Collapse layers that only rename calls. Keep small capabilities small; do not force a folder template.
 
-## 5. Risk-to-Evidence Matrix
+## 3. System Structure and Ownership
 
-| Risk                    | Evidence                                                               |
-| ----------------------- | ---------------------------------------------------------------------- |
-| Pure decision/invariant | unit table and property test where combinatorial                       |
-| Parser/codec            | invalid/boundary cases, round trip, old fixtures                       |
-| Type/public declaration | type tests and built consumer fixture                                  |
-| Adapter/provider        | shared contract suite; controlled failure fake                         |
-| Database semantics      | real-engine integration, concurrency/transaction tests                 |
-| Schema migration        | old/new reader-writer matrix, backfill and rollback rehearsal          |
-| Distributed delivery    | duplicate, out-of-order, timeout, retry, and reconciliation tests      |
-| Workflow/replay         | deterministic clock, replay, cancellation, serialization versions      |
-| API compatibility       | old-client/downstream contract and additive diff checks                |
-| Performance/capacity    | representative workload with defined safety margin                     |
-| Security                | threat-boundary review, authorization negative tests, redaction checks |
-| Critical journey        | focused end-to-end test in the supported runtime                       |
+### Organize around capabilities
 
-Mocks establish behavior of the code under an assumption; they do not establish the assumption is true.
+Prefer vertical capability ownership over repository-per-table or global mega-services. A capability should expose a factory or API that hides its implementation and dependencies.
 
-## 6. Verification Order
+### Own durable facts
 
-1. Reproduce the bug or core invariant.
-2. Run the narrowest unit/property/type/contract test.
-3. Run the affected package's type check and tests.
-4. Exercise the real changed boundary.
-5. Exercise relevant failure and compatibility scenarios.
-6. Run lint, formatting, build, and package checks.
-7. Run broader integration/end-to-end/downstream suites in proportion to blast radius.
-8. Inspect the final diff and generated/migration artifacts.
-9. Record commands, results, limitations, and residual risk.
+For every important fact, define:
 
-## 7. Hard Stops
+- authoritative source;
+- allowed writers;
+- concurrency/consistency rule;
+- representation version;
+- derived projections and rebuild path;
+- retention/deletion behavior;
+- migration owner.
 
-Do not call the work complete when a relevant item is unresolved:
+Caches, search indexes, UI state, and streams are projections unless explicitly designed as authority.
 
-- external data is trusted through a cast rather than evidence;
-- authorization is missing, bypassable, or checked only on some paths;
-- an important fact has unclear ownership or multiple uncoordinated writers;
-- retries can repeat a non-idempotent effect;
-- remote work has no deadline/cancellation or unbounded concurrency;
-- public/durable behavior changes without compatibility and migration;
-- rollback assumes durable mutation did not occur;
-- a critical database/runtime/provider claim is tested only by mocks;
-- sensitive data may enter logs, errors, traces, or analytics;
-- the operator cannot distinguish failure classes;
-- required verification did not run and the limitation is hidden.
+### Enforce dependency direction
 
-Escalate rather than inventing missing authority, requirements, or production evidence.
+Keep domain policy independent from HTTP frameworks, ORM clients, queue SDKs, environment globals, and vendor SDKs when practical. Let adapters depend on application-owned ports. Enforce important directions with package boundaries, export maps, lint rules, or architecture tests.
 
-## 8. Handoff Format
+### Default to a modular monolith
 
-Use this structure for design and implementation handoff. For code review, use the findings-first format in section 4, followed by verification limits and residual risk.
+Split a service only when there is concrete pressure for independent deployment, scaling, fault isolation, data ownership, security isolation, or team autonomy. A network boundary adds latency, partial failure, compatibility, observability, and coordination cost.
 
-Lead with the outcome, then report:
+## 4. System-Design Principles
 
-### Contract
+Apply these principles as questions, not slogans:
 
-- outcome, scope, invariants, and compatibility;
+- **Make assumptions explicit.** Record invariants, scale, trust, failure, and stakeholder constraints.
+- **Adopt sweeping simplifications.** Remove states, modes, writers, or protocols when one simpler model can serve.
+- **Avoid excessive generality.** Generalize only around credible reuse or volatile policy.
+- **Design for iteration.** Expect revision and make interfaces, data, and rollout changeable.
+- **Use end-to-end reasoning.** Put correctness checks at the layer with enough knowledge; infrastructure may assist but not replace them.
+- **Maintain safety margins.** Define capacity, timeout, retry, quota, and data-loss boundaries before reaching them.
+- **Prefer one writer.** Single ownership simplifies coordination; otherwise define conflict resolution explicitly.
+- **Never modify the only copy.** Use transactional, versioned, or recoverable mutation for critical state.
+- **Separate mechanism from policy.** Stabilize mechanisms; keep product decisions explicit and replaceable.
+- **Use fail-safe defaults and complete mediation.** Deny or preserve safety when information is missing, and authorize every protected operation.
+- **Minimize common mechanism and privilege.** Shared infrastructure and broad authority increase blast radius.
+- **Match interfaces to user mental models.** Defaults and names are product decisions.
 
-### Design
+## 5. Failure and Distributed Behavior
 
-- boundaries, ownership, public APIs, and important tradeoffs;
+### Model failure
 
-### Failure and operations
+Distinguish:
 
-- error/time/concurrency/idempotency behavior and telemetry;
+- expected domain outcome;
+- invalid input;
+- authorization failure;
+- retryable dependency failure;
+- terminal dependency failure;
+- cancellation/deadline;
+- overload/rejection;
+- programmer defect or broken invariant.
 
-### Evidence
+Use stable machine-readable identity, preserve causes, and translate once at the owning boundary.
 
-- exact verification performed and results;
+### Treat time as part of the contract
 
-### Remaining risk
+Propagate caller-owned deadlines and cancellation. Bound concurrency, queues, memory, response sizes, and retries. Avoid layered retry amplification.
 
-- assumptions, unverified surfaces, rollout/rollback, and next action.
+Use bounded exponential backoff with jitter at one layer under a retry budget. Record attempts and final classification.
 
-Keep reports proportionate. Do not bury the outcome under process narration.
+### Assume repetition and partial success
+
+For webhooks, messages, jobs, client retries, and workflow steps:
+
+- use stable idempotency keys;
+- atomically persist dedupe with the durable effect when possible;
+- reject key reuse with a different payload;
+- use outbox/inbox or reconciliation where systems cannot share a transaction;
+- prefer idempotent state-setting to blind increments.
+
+Keep the guarantee precise:
+
+- deduplicating delivery does not prove an external effect ran only once;
+- an idempotency key is only as strong as the downstream system's documented retention, conflict, and lookup behavior;
+- a local lock, lease, or status row cannot resolve a crash or timeout after the external system accepted work;
+- at-least-once attempts require an idempotent effect or reconciliation;
+- a single-attempt strategy may execute zero or one time and needs an explicit recovery policy;
+- an ambiguous outcome must be queried or reconciled before another non-idempotent attempt.
+
+Do not claim exactly-once or business-level at-most-once behavior without an end-to-end argument covering every durable and external boundary.
+
+### Choose the correct coordination primitive
+
+| Primitive | Use for | Central question |
+|---|---|---|
+| Queue/event stream | decoupling, buffering, fan-out | How are duplicate and out-of-order deliveries handled? |
+| Durable workflow | resumable multi-step coordination | What is deterministic and what is a journaled effect? |
+| Actor | serialized per-entity state/connections/timers | What is the partition key and durable truth? |
+| Statechart | genuinely modal/hierarchical state | Does explicit transition modeling reduce total complexity? |
+
+## 6. API and SDK Design
+
+Design from the consumer's task backward.
+
+Require:
+
+- one obvious common path;
+- domain language rather than implementation language;
+- small stable surface and useful inference;
+- runtime validation at external boundaries;
+- explicit errors, cancellation, timeouts, and long-running behavior;
+- pagination from the first list API;
+- predictable defaults and idempotency where mutation may repeat;
+- provider-specific escape hatches without leaking them into the common model;
+- examples for success, failure, and migration;
+- additive evolution, deprecation, and compatibility policy.
+
+Separate presentation, domain, persistence, specification, and vendor-wire shapes. Translate at owned boundaries; do not let one transport or provider become the domain model.
+
+Use inference-first contracts only when deployments are coordinated. Use an explicit runtime/wire specification for public, polyglot, or independently deployed clients.
+
+Test the built package, declarations, export map, runtime variants, and representative consumers—not only source imports.
+
+## 7. Change and Migration
+
+Prefer additive parallel change:
+
+1. expand schema/API/representation;
+2. deploy compatible readers and writers;
+3. backfill or migrate with observable progress;
+4. switch authority/read paths;
+5. validate invariants and rollback assumptions;
+6. contract old paths after evidence shows they are unused.
+
+Keep old-format fixtures. Support concurrent old/new deployments. Define rollback after data has changed, not only before deployment.
+
+Give feature flags and compatibility shims an owner, expiry, off-path test, and deletion trigger.
+
+Prefer a local seam and incremental improvement. Require evidence before replacing a working architecture wholesale.
+
+## 8. Contextual Choices
+
+Do not equate these with seniority:
+
+- Effect or another effect system;
+- functional or object-oriented style;
+- DDD tactical patterns;
+- microservices or monorepos;
+- event sourcing/CQRS;
+- actors or state machines;
+- advanced type programming;
+- code generation.
+
+Choose them only when the problem's state, failure, concurrency, ownership, compatibility, or lifecycle model repays the learning and operational cost.

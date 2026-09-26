@@ -1,0 +1,4 @@
+interface:
+  display_name: "Google Code Review"
+  short_description: "Review code and write concise PR descriptions"
+  default_prompt: "Use $google-code-review to review this change and rewrite its PR description concisely."

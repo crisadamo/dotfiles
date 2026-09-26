@@ -1,0 +1,4 @@
+interface:
+  display_name: "API Design with Google AIPs"
+  short_description: "Design and review resource-oriented APIs"
+  default_prompt: "Use $api-design-google-aip to design or review this API against the General Google AIPs."

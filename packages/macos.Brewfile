@@ -21,7 +21,6 @@ brew 'mise'
 brew 'neovim'
 brew 'nvm'
 brew 'ripgrep'
-brew 'ripgrep'
 brew 'rustup'
 brew 'shellcheck'
 brew 'starship'
@@ -78,7 +77,8 @@ cask 'cursor'
 cask 'cursor-cli'
 cask 'grok-build'
 cask 'claude-code'
-
+brew tap 'slashtable/cask'
+brew install slashtable
 cask 'ghostty' # use kero
 cask 'tableplus' # use slashpro
 cask 'yaak@beta'

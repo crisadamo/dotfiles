@@ -1,44 +1,33 @@
-model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
-
 approval_policy = "on-request"
 approvals_reviewer = "guardian_subagent"
+
+model = "gpt-6-astra"
+model_auto_compact_token_limit = 900000
+model_reasoning_effort = "medium"
+
 sandbox_mode = "workspace-write"
-# model_catalog_json = "/Users/crisadamo/.codex/opencodex-catalog.json"
-# Auto-injected by opencodex
-# openai_base_url = "http://127.0.0.1:10100/v1"
-
-[features]
-apps = true
-hooks = true
-multi_agent = true
-prevent_idle_sleep = true
-memories = true
-js_repl = false
-fast_mode = true
-chronicle = true
-
-[desktop.open-in-target-preferences]
-global = "zed"
-
-[memories]
-generate_memories = true
-use_memories = true
-
-[tui.model_availability_nux]
-"gpt-5.5" = 4
+service_tier = "default"
 
 [desktop]
 ambient-suggestions-enabled = true
-appearanceTheme = "dark"
-appearanceLightCodeThemeId = "codex"
 appearanceDarkCodeThemeId = "nord"
-sansFontSize = 14
+appearanceDiffMarkerStyle = "symbols"
+appearanceLightCodeThemeId = "codex"
+appearanceTheme = "dark"
+avatar-overlay-mascot-width-px = 95
 codeFontSize = 14
-usePointerCursors = false
-localeOverride = "en-US"
-preventSleepWhileRunning = true
-keepRemoteControlAwakeWhilePluggedIn = true
+conversationDetailMode = "STEPS_PROSE"
+dock-icon-preference = "app-default"
+enabled-reasoning-efforts = [
+    "low",
+    "medium",
+    "high",
+    "xhigh",
+    "ultra",
+    "max",
+]
+followUpQueueMode = "queue"
+git-branch-prefix = "atlas/"
 git-commit-instructions = """
 You are an expert at writing Git commits. Your job is to write a short clear commit message that summarizes the changes using conventional commit format.
 
@@ -95,18 +84,36 @@ Follow good Git style:
 - Wrap the body at 72 characters
 
 """
-conversationDetailMode = "STEPS_COMMANDS"
-selected-avatar-id = "null-signal"
-dock-icon-preference = "app-default"
-git-branch-prefix = "atlas/"
-useFontSmoothing = true
-followUpQueueMode = "queue"
-enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "max"]
-realtimeVoiceScreenContextEnabled = true
-show-context-window-usage = true
-appearanceDiffMarkerStyle = "symbols"
+keepRemoteControlAwakeWhilePluggedIn = true
+localeOverride = "en-US"
 notifications-turn-mode = "always"
-avatar-overlay-mascot-width-px = 95
+preventSleepWhileRunning = true
+realtimeVoiceScreenContextEnabled = true
+sansFontSize = 14
+selected-avatar-id = "codex"
+show-context-window-usage = true
+useFontSmoothing = true
+usePointerCursors = false
+toys-audio-visualizer-enabled = true
+avatar-overlay-pet-visible = false
+default-workspace-full-view = false
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#e1e1e1"
+accentSource = "custom"
+contrast = 80
+ink = "#cccccc"
+opaqueWindows = true
+surface = "#0a0a0a"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+code = "IBM Plex Mono"
+ui = "IBM Plex Sans"
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#a3be8c"
+diffRemoved = "#bf616a"
+skill = "#b48ead"
 
 [desktop.appearanceLightChromeTheme]
 accent = "#0169cc"
@@ -124,18 +131,103 @@ diffAdded = "#00a240"
 diffRemoved = "#e02e2a"
 skill = "#751ed9"
 
-[desktop.appearanceDarkChromeTheme]
-accent = "#000000"
-contrast = 75
-ink = "#cccccc"
-opaqueWindows = true
-surface = "#0a0a0a"
+[desktop.open-in-target-preferences]
+global = "zed"
 
-[desktop.appearanceDarkChromeTheme.fonts]
-code = "IBM Plex Mono"
-ui = "IBM Plex Sans"
+[features]
+apps = true
+chronicle = true
+fast_mode = true
+hooks = true
+js_repl = false
+memories = true
+multi_agent = true
+prevent_idle_sleep = true
 
-[desktop.appearanceDarkChromeTheme.semanticColors]
-diffAdded = "#a3be8c"
-diffRemoved = "#bf616a"
-skill = "#b48ead"
+[memories]
+generate_memories = true
+use_memories = true
+
+[notice.model_migrations]
+gpt-5-codex = "gpt-5.2-codex"
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."build-ios-apps@openai-curated"]
+enabled = false
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."cloudflare@openai-curated"]
+enabled = false
+
+[plugins."codex-security@openai-curated"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."figma@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."google-drive@openai-curated"]
+enabled = true
+
+[plugins."linear@openai-curated"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."record-and-replay@openai-bundled"]
+enabled = true
+
+[plugins."sentry@openai-curated"]
+enabled = true
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."superpowers@openai-curated"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."vercel@openai-curated"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."computer-history@openai-bundled"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."diagram-design@diagram-design"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true

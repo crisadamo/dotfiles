@@ -15,11 +15,11 @@ Use this reference to classify risk, prepare or review designs, audit code, plan
 
 ## 1. Risk Tiers
 
-| Tier   | Examples                                                                                                                                  | Implementation/release process                                                                       |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Low    | local reversible implementation inside one module                                                                                         | contract, focused test, diff review                                                                  |
-| Medium | new capability, cross-module dependency, internal API, meaningful state change, moderate migration                                        | short design brief, credible alternative, seam evidence, independent review                          |
-| High   | public API, durable schema, auth/security, money, distributed coordination, new service, foundational abstraction, irreversible migration | full brief, two designs, pre-mortem, staged rollout, rollback, independent reviewers, broad evidence |
+| Tier | Examples | Implementation/release process |
+|---|---|---|
+| Low | local reversible implementation inside one module | contract, focused test, diff review |
+| Medium | new capability, cross-module dependency, internal API, meaningful state change, moderate migration | short design brief, credible alternative, seam evidence, independent review |
+| High | public API, durable schema, auth/security, money, distributed coordination, new service, foundational abstraction, irreversible migration | full brief, two designs, pre-mortem, staged rollout, rollback, independent reviewers, broad evidence |
 
 Risk follows blast radius, irreversibility, data/security exposure, distributed failure, and compatibility—not line count.
 
@@ -66,17 +66,17 @@ Require the design to answer relevant scenarios or explicitly accept the risk.
 
 Evaluate each dimension as **missing**, **plausible**, or **evidenced**. Do not average away a critical missing dimension.
 
-| Dimension       | Review questions                                                                             |
-| --------------- | -------------------------------------------------------------------------------------------- |
-| Contract        | Are outcome, invariants, failures, non-goals, and compatibility explicit?                    |
-| Trust/security  | Are all inputs, identities, authority, and safe defaults enforced at every operation?        |
-| Complexity      | Does the abstraction hide a decision? Is change amplification bounded?                       |
-| Ownership       | Is durable truth and writer/consistency policy explicit?                                     |
-| API             | Is the common path obvious, behavior stable, and evolution additive?                         |
-| Time/failure    | Are deadlines, cancellation, retries, idempotency, and partial success designed?             |
-| Migration       | Can old/new code and data coexist? Is rollback real after mutation?                          |
-| Evidence        | Do tests/prototypes/measurements falsify the important risks at real seams?                  |
-| Operations      | Are outcomes, versions, attempts, dependencies, correlation, and redaction observable?       |
+| Dimension | Review questions |
+|---|---|
+| Contract | Are outcome, invariants, failures, non-goals, and compatibility explicit? |
+| Trust/security | Are all inputs, identities, authority, and safe defaults enforced at every operation? |
+| Complexity | Does the abstraction hide a decision? Is change amplification bounded? |
+| Ownership | Is durable truth and writer/consistency policy explicit? |
+| API | Is the common path obvious, behavior stable, and evolution additive? |
+| Time/failure | Are deadlines, cancellation, retries, idempotency, and partial success designed? |
+| Migration | Can old/new code and data coexist? Is rollback real after mutation? |
+| Evidence | Do tests/prototypes/measurements falsify the important risks at real seams? |
+| Operations | Are outcomes, versions, attempts, dependencies, correlation, and redaction observable? |
 | Discoverability | Can a new human or agent find ownership, entrypoints, commands, invariants, and constraints? |
 
 For high-risk work, require every critical dimension to be evidenced before release or formally accepted by the accountable owner.
@@ -94,20 +94,20 @@ For each finding, provide the smallest useful code/location reference, a concret
 
 ## 5. Risk-to-Evidence Matrix
 
-| Risk                    | Evidence                                                               |
-| ----------------------- | ---------------------------------------------------------------------- |
-| Pure decision/invariant | unit table and property test where combinatorial                       |
-| Parser/codec            | invalid/boundary cases, round trip, old fixtures                       |
-| Type/public declaration | type tests and built consumer fixture                                  |
-| Adapter/provider        | shared contract suite; controlled failure fake                         |
-| Database semantics      | real-engine integration, concurrency/transaction tests                 |
-| Schema migration        | old/new reader-writer matrix, backfill and rollback rehearsal          |
-| Distributed delivery    | duplicate, out-of-order, timeout, retry, and reconciliation tests      |
-| Workflow/replay         | deterministic clock, replay, cancellation, serialization versions      |
-| API compatibility       | old-client/downstream contract and additive diff checks                |
-| Performance/capacity    | representative workload with defined safety margin                     |
-| Security                | threat-boundary review, authorization negative tests, redaction checks |
-| Critical journey        | focused end-to-end test in the supported runtime                       |
+| Risk | Evidence |
+|---|---|
+| Pure decision/invariant | unit table and property test where combinatorial |
+| Parser/codec | invalid/boundary cases, round trip, old fixtures |
+| Type/public declaration | type tests and built consumer fixture |
+| Adapter/provider | shared contract suite; controlled failure fake |
+| Database semantics | real-engine integration, concurrency/transaction tests |
+| Schema migration | old/new reader-writer matrix, backfill and rollback rehearsal |
+| Distributed delivery | duplicate, out-of-order, timeout, retry, and reconciliation tests |
+| Workflow/replay | deterministic clock, replay, cancellation, serialization versions |
+| API compatibility | old-client/downstream contract and additive diff checks |
+| Performance/capacity | representative workload with defined safety margin |
+| Security | threat-boundary review, authorization negative tests, redaction checks |
+| Critical journey | focused end-to-end test in the supported runtime |
 
 Mocks establish behavior of the code under an assumption; they do not establish the assumption is true.
 

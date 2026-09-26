@@ -25,8 +25,8 @@ For new code, prefer at least:
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "useUnknownInCatchVariables": true,
-    "forceConsistentCasingInFileNames": true,
-  },
+    "forceConsistentCasingInFileNames": true
+  }
 }
 ```
 
@@ -95,16 +95,16 @@ Keep retryability, idempotency, concurrency limits, and partial success explicit
 
 Map risk to evidence:
 
-| Risk                           | First evidence                                 |
-| ------------------------------ | ---------------------------------------------- |
-| Domain invariant/transition    | unit table or property test                    |
-| Public generic inference       | type test and declaration fixture              |
-| Parsing/serialization          | valid, invalid, boundary, and round-trip tests |
-| Adapter contract               | shared contract suite                          |
-| Database/transaction/migration | integration against the real engine            |
-| Package/runtime support        | built-package consumer tests                   |
-| Retry/cancel/replay            | deterministic clock and fault injection        |
-| Critical user flow             | focused end-to-end test                        |
+| Risk | First evidence |
+|---|---|
+| Domain invariant/transition | unit table or property test |
+| Public generic inference | type test and declaration fixture |
+| Parsing/serialization | valid, invalid, boundary, and round-trip tests |
+| Adapter contract | shared contract suite |
+| Database/transaction/migration | integration against the real engine |
+| Package/runtime support | built-package consumer tests |
+| Retry/cancel/replay | deterministic clock and fault injection |
+| Critical user flow | focused end-to-end test |
 
 Use a local or SQLite-compatible substitute only when its constraints, transactions, isolation, query behavior, and concurrency faithfully represent the production contract. Otherwise, use the real engine.
 
@@ -131,3 +131,4 @@ Make the system discoverable to humans and coding agents:
 - provide architecture/package maps for non-obvious graphs;
 - keep examples aligned with the supported path;
 - record migrations, compatibility behavior, and known constraints near the owned module.
+

@@ -59,12 +59,8 @@ alias vim='nvim'
 alias c='clear'
 alias pyweb="python -m http.server"
 
-#export DENO_DIR="$HOME/Library/Caches/deno"
-export PATH="$HOME/.bun/bin:$PATH"
-
 # ~/.zshrc
 [ -f "$HOME/.config/secrets/shell.env" ] && source "$HOME/.config/secrets/shell.env"
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion:
 [ -f "$HOME/.vite-plus/env" ] && source "$HOME/.vite-plus/env"
 

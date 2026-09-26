@@ -4,7 +4,7 @@ Source: https://docs.deno.com/runtime/contributing/style_guide/
 
 Last checked: 2026-07-29. The page itself listed `last_modified: 2026-03-12`.
 
-Use this as a secondary reference after Patagon repo-local instructions. Deno states this guide is for Deno runtime internals and the Deno Standard Library, so do not apply its rules mechanically where Patagon conventions differ.
+Use this as a secondary reference after repo-local instructions. Deno states this guide is for Deno runtime internals and the Deno Standard Library, so do not apply its rules mechanically where repo-local conventions differ.
 
 ## Transferable Review Points
 
@@ -25,8 +25,8 @@ Use this as a secondary reference after Patagon repo-local instructions. Deno st
 - Use `UPPER_SNAKE_CASE` for static top-level constants.
 - Treat acronyms as ordinary words in `camelCase` or `PascalCase` unless the repo or a web/API standard requires otherwise: prefer `HttpClient` over `HTTPClient`, `parseUrl` over `parseURL`.
 
-## How To Apply In Patagon Reviews
+## How To Apply In Work Reviews
 
 - Use these rules to strengthen comments about API clarity, naming, exported contracts, docs, and tests.
-- Do not ask for Deno-specific filenames such as `mod.ts` or underscore filename semantics unless the Patagon repo already uses those conventions.
+- Do not ask for Deno-specific filenames such as `mod.ts` or underscore filename semantics unless the repo already uses those conventions.
 - Do not block a PR solely because it differs from Deno style. Block only when the difference creates a concrete contract, readability, compatibility, or maintenance risk.
