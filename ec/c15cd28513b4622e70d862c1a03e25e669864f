@@ -1,0 +1,66 @@
+home/.agents/skills/code-review/references/implementer.md
+  h_d583152d6f694d 1-19
+home/.agents/skills/code-review/references/reviewer.md
+  h_d583152d6f694d 1-24
+home/.agents/skills/code-review/references/security-auditor.md
+  h_d583152d6f694d 1-49
+home/.agents/skills/design/references/design-doc-reviewer.md
+  h_d583152d6f694d 1-51
+home/.agents/skills/design/references/design-doc-writer.md
+  h_d583152d6f694d 1-42
+home/.agents/skills/engineering-practice/SKILL.md
+  h_d583152d6f694d 1-76
+home/.agents/skills/engineering-practice/agents/openai.yaml
+  h_d583152d6f694d 1-14
+home/.agents/skills/engineering-practice/assets/adr.md
+  h_d583152d6f694d 1-20
+home/.agents/skills/engineering-practice/assets/icon.svg
+  h_d583152d6f694d 1-6
+home/.agents/skills/engineering-practice/assets/lease-job.test.mjs
+  h_d583152d6f694d 1-125
+home/.agents/skills/engineering-practice/assets/lease-job.ts
+  h_d583152d6f694d 1-76
+home/.agents/skills/engineering-practice/assets/work-record.md
+  h_d583152d6f694d 1-56
+home/.agents/skills/engineering-practice/assets/worked-example.md
+  h_d583152d6f694d 1-63
+home/.agents/skills/engineering-practice/references/design.md
+  h_d583152d6f694d 1-38
+home/.agents/skills/engineering-practice/references/patterns.md
+  h_d583152d6f694d 1-147
+home/.agents/skills/engineering-practice/references/problem-and-spec.md
+  h_d583152d6f694d 1-41
+home/.agents/skills/engineering-practice/references/sources-and-adoption.md
+  h_d583152d6f694d 1-59
+home/.agents/skills/engineering-practice/references/typescript.md
+  h_d583152d6f694d 1-34
+home/.agents/skills/engineering-practice/references/verification-and-operations.md
+  h_d583152d6f694d 1-45
+home/.agents/skills/factory-pr-babysit/SKILL.md
+  h_d583152d6f694d 1-154
+home/.agents/skills/factory-runbook/SKILL.md
+  h_d583152d6f694d 1-171
+home/.agents/skills/implement/references/implementer.md
+  h_d583152d6f694d 1-19
+home/.agents/skills/implement/references/reviewer.md
+  h_d583152d6f694d 1-24
+home/.agents/skills/implement/references/security-auditor.md
+  h_d583152d6f694d 1-49
+home/.agents/skills/review/references/implementer.md
+  h_d583152d6f694d 1-19
+home/.agents/skills/review/references/reviewer.md
+  h_d583152d6f694d 1-24
+home/.agents/skills/review/references/security-auditor.md
+  h_d583152d6f694d 1-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ecc15cd28513b4622e70d862c1a03e25e669864f",
+  "prompts": {},
+  "humans": {
+    "h_d583152d6f694d": {
+      "author": "Cristian Adamo <cristian.adamo@gmail.com>"
+    }
+  }
+}
