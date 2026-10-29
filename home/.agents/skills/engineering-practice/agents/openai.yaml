@@ -1,0 +1,14 @@
+interface:
+  display_name: Engineering Practice
+  short_description: Turn product intent into simple, proven systems
+  default_prompt: Use $engineering-practice to turn this idea into a precise contract,
+    a simple design, and a verified implementation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
